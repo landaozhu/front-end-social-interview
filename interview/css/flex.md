@@ -9,7 +9,7 @@
 - align-items(flex-star|flex-end|center|baseline|stretch) 
 - align-content(flex-start|flex-end|center|space-between|space-around|stretch)
 ## 项目属性
-- order 默认0 数值越小越靠前
+- order 默认0 数值越小越靠前，可以是负数
 - flex-grow 定义项目的放大比例
 - flex-shrink 定义项目的缩小比例
 - flex-basis 项目占据主轴的空间
