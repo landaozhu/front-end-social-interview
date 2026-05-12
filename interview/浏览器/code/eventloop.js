@@ -19,3 +19,11 @@ new Promise(function (resolve) {
 });
 console.log("js end");
 
+//js start
+//async1 start
+//async2
+//promise
+//js end
+//"async1 end
+//then
+//timeout

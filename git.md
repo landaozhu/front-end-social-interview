@@ -71,7 +71,12 @@ git fetch 远程 分支  # 拉取分支
 git pull=git fetch+git merge
 git pull [远程] #拉取全部并合并
 git pull 远程 分支 #拉取分支并合并
+## push
+Git branch --set-upstream是Git branch命令的一种扩展形式，可以将本地分支与远程分支进行关联。
+
+在进行Git push操作时，如果本地分支与远程分支未进行过关联，则需要在Git push时指定远程分支
 ## 参考
 - [叼烟写单测 git合集](https://www.bilibili.com/video/BV1Yd4y1v7ab/?spm_id_from=333.788&vd_source=1717bca8aebff18ca2591bd114c54e3f)
 - [【搞笑Git教程】15 git pull和git fetch | 一套带走 快速上手 保姆级 | 持续更新](https://www.bilibili.com/video/BV1E3411c7cb/?spm_id_from=333.337.search-card.all.click&vd_source=1717bca8aebff18ca2591bd114c54e3f)
 - [【B站最全Git进阶课程】git rebase: 人生无法重来，但代码可以！](https://www.bilibili.com/video/BV1Xb4y1773F/?spm_id_from=333.337.search-card.all.click&vd_source=1717bca8aebff18ca2591bd114c54e3f)
+- [Git Branch --set-upstream详解](https://www.python100.com/html/31R2AFJ7FV96.html)

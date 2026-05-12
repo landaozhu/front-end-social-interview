@@ -1,6 +1,8 @@
 class EventEmitter {
   constructor() {
-    this.events = {};
+    this.events = {
+     
+    };
   }
   on(name, fn) {
     this.events[name] ? this.events[name].push(fn) : (this.events[name] = [fn]);
@@ -34,9 +36,9 @@ eventEmitter.once("ifSleep", () => {
 eventEmitter.emit("ifSleep");
 eventEmitter.emit("ifSleep");
 
-eventEmitter.on("ifGoOut", () => {
-  console.log("出来玩呀");
-});
+// eventEmitter.on("ifGoOut", () => {
+//   console.log("出来玩呀");
+// });
 eventEmitter.removeListener("ifGoOut", () => {
   console.log("ifGoOut取消监听");
 });
