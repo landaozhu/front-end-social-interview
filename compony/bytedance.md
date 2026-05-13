@@ -1,21 +1,21 @@
 
-1.编程：[数组扁平化](https://github.com/lanweipeng/fullAnswer/issues/15)
+1.编程：[数组扁平化](../interview/handwritten/数组扁平化.md)
 
 2.编程：扑克牌0-10的牌，每个数字4张，加上两张‘王’的牌，抽出五张牌判断5张是为顺子（‘王’做任意牌）
 
-3.跨域，jsonp跨域的缺点,[传送门](https://github.com/lanweipeng/fullAnswer/issues/10)
+3.跨域，jsonp跨域的缺点，[传送门](../interview/网络/跨域.md)
 
-4.[Udp和TCP的区别](https://github.com/lanweipeng/fullAnswer/issues/13)
+4.[Udp和TCP的区别](../interview/网络/tcp和udp的区别.md)
 
 5.写一个简单的闭包
 
 6.Cors跨域请求，复杂请求为什么发送options请求
 
-7.实现一个类可以完成事件 on, once, trigger, off，[答案传送门](https://github.com/lanweipeng/fullAnswer/issues/4)
+7.实现一个类可以完成事件 on, once, trigger, off，[答案传送门](../interview/handwritten/eventEmitter.md)
 
 8.Vue的compute和watch区别
 
-9.[判断数组方法](https://github.com/lanweipeng/fullAnswer/issues/16)
+9.[判断数组方法](../interview/js/判断是不是数组.md)
 
 10.Webpack命令
 
@@ -23,7 +23,7 @@
 
 12.sort排序内部如何排序的
 
-13.[instanceof的原理](https://github.com/lanweipeng/fullAnswer/issues/17)
+13.[instanceof的原理](../interview/js/instanceof原理.md)
 
 1.为什么用openlayer
 
@@ -36,7 +36,7 @@
 
 6.预先加载，是什么如何实现
 
-7.[Vue组件通信](https://github.com/lanweipeng/fullAnswer/issues/18)
+7.[Vue组件通信](../interview/vue/组件之间的通信.md)
 
 8.var a = {x: 1}; var b = a; a = a.x = { x: 1 };console.log(a, b)输出什么
 
@@ -48,13 +48,13 @@
 
 1． 写一个二叉树的插入
 
-2． [手写原生ajax](https://github.com/lanweipeng/fullAnswer/issues/21)
+2． [手写原生ajax](../interview/handwritten/手写ajax.md)
 
 
 
-4． [https和http的区别](https://github.com/lanweipeng/fullAnswer/issues/19)
+4． [https和http的区别](../interview/网络/http和https的区别.md)
 
-5． [https加密过程](https://github.com/lanweipeng/fullAnswer/issues/20)
+5． [https加密过程](../interview/网络/https加密过程.md)
 
 6． http和udp的区别
 
@@ -170,7 +170,7 @@ HR 面（三面结束后 1 h 左右，20 min 左右）
 （3）HTTP2.0
 
 
-4、[自己实现new函数](https://github.com/lanweipeng/fullAnswer/issues/23)
+4、[自己实现new函数](../interview/handwritten/new.md)
 
 5、网络七层协议
 

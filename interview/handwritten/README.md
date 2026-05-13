@@ -3,6 +3,9 @@
 - [new](new.md)
 - [防抖](防抖.md)
 - [节流](节流.md)
+- [less-loader](less-loader.md)
+- [css配置](css配置.md)
+- [style-loader](style-loader.md)
 - [都有哪些手写题](https://juejin.cn/post/7033275515880341512?searchId=2023081415133211F649EE405640FDFF02)
 - [JS\_手写实现](https://blog.csdn.net/weixin_52884694/article/details/127427552)
 
