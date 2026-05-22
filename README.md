@@ -130,11 +130,6 @@
 
 前端面试刷八股文，看这里就够了
 
-## 贡献
 
-欢迎来 start 这个项目吸引更多的人贡献
-
-如果你想贡献，多提 issue，更好的回答 issue，点赞好的回答
-本人微信：18459111547，请注明来意
 
 https://www.bilibili.com/video/BV1Tx4y1E78g/?spm_id_from=autoNext&vd_source=1717bca8aebff18ca2591bd114c54e3f
