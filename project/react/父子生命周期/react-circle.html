@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class Child2 extends React.Component{
+        constructor(props){
+          super(props)
+        }
+        componentDidUpdate(){
+          console.log('child2 componentDidUpdate',this.props.text)
+        }
+        render(){
+          return <div>22:{this.props.text}</div>
+        }
+      }
+      class Child extends React.Component{
+        constructor(props){
+          super(props)
+        }
+        shouldComponentUpdate(preProps,props){
+          console.log('Child shouldComponentUpdate',preProps,props)
+        }
+        componentDidUpdate(){
+          console.log('child componentDidUpdate',this.props.text)
+        }
+        componentWillUpdate(){
+          console.log('child componentWillUpdate',this.props.text)
+        }
+        componentDidMount(){
+          console.log('child componentDidMount',this.props.text)
+        }
+        render(){
+          return <div>{this.props.text}</div>
+        }
+      }
+      class Father extends React.Component{
+        constructor(props){
+          super(props)
+          this.state={
+            childs:[{key:0,text:'hh'}]
+          }
+        }
+        shouldComponentUpdate(preProps,props){
+          console.log('father shouldComponentUpdate',preProps,props)
+        }
+        componentWillUpdate(){
+          console.log('father componentWillUpdate')
+        }
+        componentDidUpdate(){
+          console.log('father componentDidUpdate')
+        }
+        handleAdd=()=>{
+          this.setState(preState=>({childs:[...preState.childs,{key:1,text:'xx'}]}))
+        }
+        handleDelete=()=>{
+         this.setState(prevState => ({
+          childs: prevState.childs.slice(1)
+        }))
+        }
+        handleEdit=()=>{
+          const childs=this.state.childs;
+          childs[0].text='change'
+          this.setState({childs})
+        }
+        render(){
+          return <div>
+            <button onClick={this.handleAdd}>add</button>
+            <button onClick={this.handleDelete}>delete</button>
+            <button onClick={this.handleEdit}>edit</button>
+            <ul>
+              {this.state.childs.map(item=>(
+                <li key={item.key}><Child text={item.text}/></li>
+              ))} 
+          
+            </ul>
+          </div>
+        }
+       
+      }
+    
+      function MyApp() {
+        return <Father/>;
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+      root.render(<MyApp />);
+      
+
+
+      //编译后
+      //  root.render(
+      //    React.createElement(MyApp, null)
+      //  )
+
+    </script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this page for starting a new React project with JSX:
+      https://react.dev/learn/start-a-new-react-project
+
+      Read this page for adding React with JSX to an existing project:
+      https://react.dev/learn/add-react-to-an-existing-project
+    -->
+  </body>
+</html>

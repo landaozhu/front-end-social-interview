@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16/dist/vue.js"></script>
+  <script>
+    Vue.component('Child', {
+  template: '<section>child</section>',
+  mounted() {
+    console.log('===== Child vm =====')
+    console.log(this)
+
+    console.log('Child._vnode')
+    console.log(this._vnode)
+
+    console.log('Child._vnode.parent')
+    console.log(this._vnode.parent)
+  }
+})
+const vm = new Vue({
+  el:'#app',
+  template:`
+    <div>
+      <Child ref="c1"/>
+    </div>
+  `,
+  mounted() {
+    console.log('===== Father vm =====')
+    console.log(this)
+
+    console.log('Father._vnode')
+    console.log(this._vnode)
+
+    console.log('Father.$refs.c1')
+    console.log(this.$refs.c1)
+  }
+})
+  </script>
+</body>
+</html>

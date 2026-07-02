@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue2 Key Demo</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>index 作为 key</h2>
+
+    <ul>
+      <item
+        v-for="(item, index) in list"
+        :key="index"
+        :value="item"
+        @remove="remove(index)"
+      />
+    </ul>
+
+    <button @click="add">
+      add
+    </button>
+  </div>
+
+  <script>
+
+    Vue.component('item', {
+      props: ['value'],
+
+      data() {
+        return {
+          checked: false
+        }
+      },
+
+      template: `
+        <li>
+          <input
+            type="checkbox"
+            v-model="checked"
+          />
+
+          {{ value }}
+
+          <button @click="$emit('remove')">
+            删除
+          </button>
+        </li>
+      `
+    })
+
+    new Vue({
+      el: '#app',
+
+      data() {
+        return {
+          list: [1, 2, 3, 4]
+        }
+      },
+
+      methods: {
+        add() {
+          this.list.unshift('new')
+        },
+
+        remove(index) {
+          this.list.splice(index, 1)
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Key Demo</title>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+      const { useState } = React;
+
+      function Item({ value }) {
+        const [checked, setChecked] = useState(false);
+
+        return (
+          <li>
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={() => setChecked(v => !v)}
+            />
+            {value}
+          </li>
+        );
+      }
+
+      function MyApp() {
+        const [list, setList] = useState([1, 2, 3, 4]);
+
+        function add() {
+          setList(l => ['new', ...l]);
+        }
+
+        return (
+          <>
+            <h2>index 作为 key</h2>
+
+            <ul>
+              {list.map((item, index) => (
+                <Item
+                  key={index}
+                  value={item}
+                />
+              ))}
+            </ul>
+
+            <button onClick={add}>
+              add
+            </button>
+          </>
+        );
+      }
+
+      const container = document.getElementById('root');
+      const root = ReactDOM.createRoot(container);
+
+      root.render(<MyApp />);
+
+    </script>
+  </body>
+</html>
