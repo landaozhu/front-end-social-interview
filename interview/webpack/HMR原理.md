@@ -1,3 +1,4 @@
+![图片描述](./截屏2026-08-22%2015.46.51.png)
 # 一、HMR 核心原理
 模块依赖图驱动
 Webpack 将每个模块抽象成节点，import/export 或 require 关系形成 ModuleGraph

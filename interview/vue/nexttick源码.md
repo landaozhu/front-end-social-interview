@@ -1,0 +1,1 @@
+nextTick 内部维护了一个 callbacks 队列和一个 pending 状态。每次调用 nextTick(cb) 时，会先把回调放进 callbacks。如果当前还没有安排异步刷新，也就是 pending === false，就把 pending 设为 true，然后通过 timerFunc 注册一次异步任务。这个异步任务真正执行时会调用 flushCallbacks，一次性把这一轮收集到的所有回调按顺序执行，并重置 pending，这样下一轮 nextTick 又可以重新注册异步任务。这样做的目的，是把同一轮多次 nextTick 合并成一次异步调度，避免重复创建微任务。

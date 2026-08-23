@@ -1,33 +1,29 @@
-function quickSort(arr) {
-  quick_sort(arr, 0, arr.length - 1);
-  return arr;
-}
-function quick_sort(arr, start, end) {
-  if (start >= end) {
-    return;
+class EventEmitter{
+  constructor(){
+    this.events=new Map()
   }
-  let reference = arr[start];
-  let p1 = start;
-  let p2 = end;
-  while (p1 < p2) {
-    if (p1 < p2 && arr[p2] >= reference) {
-      p2--;
+  removeAllListeners(key,cb){
+    this.events.delete(key)
+    cb&&cb()
+  }
+  off(fn){
+    this.events.filter(item=>item!==fn)
+  }
+  once(key,fn){
+    const onceFn=(...args)=>{
+      fn&&fn(...args)
+      this.off(key)
     }
-    if (p1 < p2 && arr[p1] <= reference) {
-      p1++;
-    }
-    if (p1 < p2) {
-      let temp = arr[p1];
-      arr[p1] = arr[p2];
-      arr[p2] = temp;
+    this.on(key,onceFn)
+  }
+  emit(key){
+    for(let fn of this.events.get(key)){
+      fn&&fn()
     }
   }
-  arr[start] = arr[p1];
-  arr[p1] = reference;
-  quick_sort(arr, start, p1 - 1);
-  quick_sort(arr, p1 + 1, end);
+  on(key,fn){
+    if(this.events.has(key)&&fn){
+      this.events.set(key,(this.events.get(key)||[]).concat(fn))
+    }
+  }
 }
-
-var array = [4,2,6,3,7]
-quickSort(array)
-console.log(array)

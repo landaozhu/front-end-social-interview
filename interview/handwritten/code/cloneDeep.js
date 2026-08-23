@@ -1,6 +1,6 @@
 const _ = require("lodash");
-function cloneDeep(source, map = new WeakMap()) {
-  if (map.get(source)) {
+function cloneDeep(source, map = new WeakMap()) {//map解决循环引用
+  if (map.get(source)) { 
     return map.get(source);
   }
   //基础数据类型
@@ -37,16 +37,15 @@ function cloneDeep(source, map = new WeakMap()) {
   map.set(source, res);
 
   for (let key in source) {
-    if (source.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(source,key)) {
       res[key] = cloneDeep(source[key], map);
     }
   }
 
   //处理symbol作为对象属性的情况
   const symbolKeys = Object.getOwnPropertySymbols(source);
-  for (const symKey of symbolKeys) {
-    console.log(symKey);
-    res[Symbol(symKey.description)] = cloneDeep(source[symKey]);
+  for(let key of symbolKeys){
+    res[key] = deepClone(source,map)
   }
   return res;
 }
