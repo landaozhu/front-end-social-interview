@@ -38,3 +38,6 @@
 浏览器缓存 > 系统缓存 > Hosts > 路由器缓存 > 本地DNS服务器缓存
 ## 资料
 -[阮一峰dns查询过程](https://www.ruanyifeng.com/blog/2022/08/dns-query.html)
+
+## 追问
+1. 递归跟迭代的区别

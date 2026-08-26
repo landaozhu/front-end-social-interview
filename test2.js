@@ -1,29 +1,15 @@
-class EventEmitter{
-  constructor(){
-    this.events=new Map()
-  }
-  removeAllListeners(key,cb){
-    this.events.delete(key)
-    cb&&cb()
-  }
-  off(fn){
-    this.events.filter(item=>item!==fn)
-  }
-  once(key,fn){
-    const onceFn=(...args)=>{
-      fn&&fn(...args)
-      this.off(key)
-    }
-    this.on(key,onceFn)
-  }
-  emit(key){
-    for(let fn of this.events.get(key)){
-      fn&&fn()
-    }
-  }
-  on(key,fn){
-    if(this.events.has(key)&&fn){
-      this.events.set(key,(this.events.get(key)||[]).concat(fn))
-    }
+闭包
+一个函数内部返回一个新的函数，并且这个新的函数引用外部函数的变量作为返回值
+function a(){
+  var b
+  return function(){
+    b++
   }
 }
+为什么出现：因为没有块级作用域，所以为了更好的隔离私有变量
+缺陷
+1. 内存泄漏
+使用场景
+模块化
+解决for循环包含函数问题
+hooks

@@ -12,3 +12,12 @@
 3.执行dom更新是什么：包含通过setState和修改原生dom api
 ## 知识点补充
 执行过程
+React render
+    ↓
+DOM 更新
+    ↓
+useLayoutEffect
+    ↓
+浏览器 Paint
+    ↓
+useEffect
