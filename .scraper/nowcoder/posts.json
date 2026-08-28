@@ -1,0 +1,375 @@
+{
+  "userId": "476088215",
+  "apiResponses": [
+    {
+      "url": "https://www.nowcoder.com/profile/user-info-v2?_=1787736441226",
+      "json": {
+        "msg": "用户未登录",
+        "code": 999
+      }
+    }
+  ],
+  "domPosts": [
+    {
+      "href": "https://www.nowcoder.com/blog/blogCenter",
+      "title": "专栏&文章"
+    },
+    {
+      "href": "/discuss/921789213626880000?sourceSSR=users",
+      "title": "福建星驿支付科技有限公司"
+    },
+    {
+      "href": "/discuss/921789213626880000?sourceSSR=users",
+      "title": "react的setState流程vue跟react的渲染机制小组长职责如果遇到组员跟自己都不会的问题怎么办uniapp遇到小程序跟h5兼容问题怎么解决ssr项目请求时机重构遇到新的需求进来怎么办qiankun的沙箱机制怎么做的，怎么通信的（原 ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/a447cfca2bea4f05b5bf01f45ead343c?sourceSSR=users",
+      "title": "速境生活科技"
+    },
+    {
+      "href": "/feed/main/detail/a447cfca2bea4f05b5bf01f45ead343c?sourceSSR=users",
+      "title": "**面试者基本情况**- **工作与技术栈背景**: 兰为鹏拥有 6 年前端开发经验，覆盖 B 端、C 端业务，技术栈包含 Vue、React、 ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/f5b1d39edb754b44ac8c0d734c44c089?sourceSSR=users",
+      "title": "裁员最佳策略"
+    },
+    {
+      "href": "/feed/main/detail/f5b1d39edb754b44ac8c0d734c44c089?sourceSSR=users",
+      "title": "被裁员拿了补偿以后，最佳的策略是刷题，而不是学习。原因是学不完，根本学不完，没有半年一年学不出什么能涨薪的东西，关键是遗忘率特别高，算法、手写题、各种原理，哪个不是复杂的，我三个月前自己写的热更新原理总结 ... 查看更多"
+    },
+    {
+      "href": "/discuss/919552701363421184?sourceSSR=users",
+      "title": "蜜雪冰城"
+    },
+    {
+      "href": "/discuss/919552701363421184?sourceSSR=users",
+      "title": "dayjs跟moment的区别追问：如果一百个函数，moment打包几次，dayjs打包几次，知道treeshaking吗 为什么dayjs合适vite预编译、如果遇到commenjs，vite怎么做watch跟computed分别执行几次 ... 查看更多"
+    },
+    {
+      "href": "/discuss/918816229538693120?sourceSSR=users",
+      "title": "仕途科技面经"
+    },
+    {
+      "href": "/discuss/918816229538693120?sourceSSR=users",
+      "title": "eventloopuseEffect跟useLayoutEffect区别useMomo跟React.memouseMemo跟useCallback沙箱原理nexttick原理react18原理细节vue2跟vue3区别vue2的数组额外（object.defineproperty之外）怎么做的fcp怎么处理微任务和宏 ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/eb13d7c54bd74502837f35df742d5dd3?sourceSSR=users",
+      "title": "性能优化 嵌入到移动端的项目，当项目大到爆炸怎么做（微前端）url加载过程 ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/6773906fed2840f39838871efccaad74?sourceSSR=users",
+      "title": "华住酒店"
+    },
+    {
+      "href": "/feed/main/detail/6773906fed2840f39838871efccaad74?sourceSSR=users",
+      "title": "浏览器渲染（动画之类）过程 var let const区别 ... 查看更多"
+    },
+    {
+      "href": "/discuss/878967398047498240?sourceSSR=users",
+      "title": "同程艺龙-面经"
+    },
+    {
+      "href": "/discuss/878967398047498240?sourceSSR=users",
+      "title": "webpack原理webpack&vite区别vue2&vue3区别react&vue的渲染机制package.json的dev和发布模式区别为什么要有lock常见网络攻击方式interface跟type区别type跟enum区别decical的原理（精度）虚拟dom原理吧微前端用子项 ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/1feb6b22713a4dce8e1ed7956ef9dffe?sourceSSR=users",
+      "title": "如何才能晋升"
+    },
+    {
+      "href": "/feed/main/detail/1feb6b22713a4dce8e1ed7956ef9dffe?sourceSSR=users",
+      "title": "当我想晋升时，我发现很少人会回答这个问题，大部分人的眼睛只关注在，某个具体问题如何解决，至于能赚多少钱，以后能干多久，这我不关心。 ... 查看更多"
+    },
+    {
+      "href": "/discuss/558408537890660352?sourceSSR=users",
+      "title": "gap了两个多月，终于找到工作，工资还涨了两千"
+    },
+    {
+      "href": "/discuss/558408537890660352?sourceSSR=users",
+      "title": "在如此艰难的环境下，哪怕是“大厂”加身，找份工作也不容易。我之前在携程做了两年前端开发，本人普通二本，总共毕业三年，一开始在一家小公司上班，能从小公司跳到携程薪资double，除了当时市场环境宽松，与自己坚定想去 ... 查看更多"
+    },
+    {
+      "href": "/discuss/554325015013896192?sourceSSR=users",
+      "title": "欢聚前端社招一面"
+    },
+    {
+      "href": "/discuss/554325015013896192?sourceSSR=users",
+      "title": "watch和computed区别 react事件和dom原生事件区别 react16以后fiber架构流程 redux的state改变，而不是用新的数据，会不会发生变化 useCallback接受的数组，如果是object，属性改变，那会不会改变 useEffect和useLayoutE ... 查看更多"
+    },
+    {
+      "href": "/feed/main/detail/72ebb8edf7c246908c99f403878db2c1?sourceSSR=users",
+      "title": "欢聚前端社招一面"
+    },
+    {
+      "href": "/feed/main/detail/72ebb8edf7c246908c99f403878db2c1?sourceSSR=users",
+      "title": "watch和computed区别react事件和dom原生事件区别 ... 查看更多"
+    },
+    {
+      "href": "/discuss/353158467726811136?sourceSSR=users",
+      "title": "社招前端一年进携程"
+    },
+    {
+      "href": "/discuss/353158467726811136?sourceSSR=users",
+      "title": "大厂 阿里云 三面过 轻轻松松 无hc 小红书一面挂，很惨 飞书一面挂 四道题勉强两道多会 网易云音乐 可能投错成校招 一面挂 虐的很惨 携程 offer已签 中小厂 同花顺 oc 轻轻松松 已拒契约锁 oc 轻轻松松 已拒泛微 一面过，已拒 ... 查看更多"
+    },
+    {
+      "href": "/discuss/353158379306688512?sourceSSR=users",
+      "title": "申通一面"
+    },
+    {
+      "href": "/discuss/353158379306688512?sourceSSR=users",
+      "title": "vue用了什么设计模式 继承几种方案 说一下this react生命周期 spa和多页区别 如何首屏优化 http 请求头和缓存相关 promise promise async await可能存在什么问题 数组方法 ... 查看更多"
+    },
+    {
+      "href": "/discuss/353158331911053312?sourceSSR=users",
+      "title": "携程社招一年前端面经"
+    },
+    {
+      "href": "/discuss/353158331911053312?sourceSSR=users",
+      "title": "一面 问的比较广，反正过了 二面 性能优化 堆 遇到什么印象深刻的难题 设计模式 动画 Object.definePropty 遇到数组变化怎么办。 ... 查看更多"
+    },
+    {
+      "href": "",
+      "title": "react的setState流程vue跟react的渲染机制小组长职责如果遇到组员跟自己都不会的问题怎么办uniapp遇到小程序跟h5兼容问题怎么解决ssr项目请求时机重构遇到新的需求进来怎么办qiankun的沙箱机制怎么做的，怎么通信的（原 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "react的setState流程vue跟react的渲染机制小组长职责如果遇到组员跟自己都不会的问题怎么办uniapp遇到小程序跟h5兼容问题怎么解决ssr项目请求时机重构遇到新的需求进来怎么办qiankun的沙箱机制怎么做的，怎么通信的（原 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "**面试者基本情况**\n- **工作与技术栈背景**: 兰为鹏拥有 6 年前端开发经验，覆盖 B 端、C 端业务，技术栈包含 Vue、React、 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "**面试者基本情况**\n- **工作与技术栈背景**: 兰为鹏拥有 6 年前端开发经验，覆盖 B 端、C 端业务，技术栈包含 Vue、React、 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "被裁员拿了补偿以后，最佳的策略是刷题，而不是学习。原因是学不完，根本学不完，没有半年一年学不出什么能涨薪的东西，关键是遗忘率特别高，算法、手写题、各种原理，哪个不是复杂的，我三个月前自己写的热更新原理总结 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "被裁员拿了补偿以后，最佳的策略是刷题，而不是学习。原因是学不完，根本学不完，没有半年一年学不出什么能涨薪的东西，关键是遗忘率特别高，算法、手写题、各种原理，哪个不是复杂的，我三个月前自己写的热更新原理总结 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "dayjs跟moment的区别追问：如果一百个函数，moment打包几次，dayjs打包几次，知道treeshaking吗 为什么dayjs合适vite预编译、如果遇到commenjs，vite怎么做watch跟computed分别执行几次"
+    },
+    {
+      "href": "",
+      "title": "dayjs跟moment的区别追问：如果一百个函数，moment打包几次，dayjs打包几次，知道treeshaking吗 为什么dayjs合适vite预编译、如果遇到commenjs，vite怎么做watch跟computed分别执行几次"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "eventloopuseEffect跟useLayoutEffect区别useMomo跟React.memouseMemo跟useCallback沙箱原理nexttick原理react18原理细节vue2跟vue3区别vue2的数组额外（object.defineproperty之外）怎么做的fcp怎么处理微任务和宏 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "eventloopuseEffect跟useLayoutEffect区别useMomo跟React.memouseMemo跟useCallback沙箱原理nexttick原理react18原理细节vue2跟vue3区别vue2的数组额外（object.defineproperty之外）怎么做的fcp怎么处理微任务和宏 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "性能优化 嵌入到移动端的项目，当项目大到爆炸怎么做（微前端）\nurl加载过程 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "性能优化 嵌入到移动端的项目，当项目大到爆炸怎么做（微前端）\nurl加载过程 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "浏览器渲染（动画之类）过程\nvar let const区别"
+    },
+    {
+      "href": "",
+      "title": "浏览器渲染（动画之类）过程\nvar let const区别"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "webpack原理webpack&vite区别vue2&vue3区别react&vue的渲染机制package.json的dev和发布模式区别为什么要有lock常见网络攻击方式interface跟type区别type跟enum区别decical的原理（精度）虚拟dom原理吧微前端用子项 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "webpack原理webpack&vite区别vue2&vue3区别react&vue的渲染机制package.json的dev和发布模式区别为什么要有lock常见网络攻击方式interface跟type区别type跟enum区别decical的原理（精度）虚拟dom原理吧微前端用子项 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "当我想晋升时，我发现很少人会回答这个问题，大部分人的眼睛只关注在，某个具体问题如何解决，至于能赚多少钱，以后能干多久，这我不关心。 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "当我想晋升时，我发现很少人会回答这个问题，大部分人的眼睛只关注在，某个具体问题如何解决，至于能赚多少钱，以后能干多久，这我不关心。 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "在如此艰难的环境下，哪怕是“大厂”加身，找份工作也不容易。我之前在携程做了两年前端开发，本人普通二本，总共毕业三年，一开始在一家小公司上班，能从小公司跳到携程薪资double，除了当时市场环境宽松，与自己坚定想去 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "在如此艰难的环境下，哪怕是“大厂”加身，找份工作也不容易。我之前在携程做了两年前端开发，本人普通二本，总共毕业三年，一开始在一家小公司上班，能从小公司跳到携程薪资double，除了当时市场环境宽松，与自己坚定想去 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "watch和computed区别 react事件和dom原生事件区别 react16以后fiber架构流程 redux的state改变，而不是用新的数据，会不会发生变化 useCallback接受的数组，如果是object，属性改变，那会不会改变 useEffect和useLayoutE ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "watch和computed区别 react事件和dom原生事件区别 react16以后fiber架构流程 redux的state改变，而不是用新的数据，会不会发生变化 useCallback接受的数组，如果是object，属性改变，那会不会改变 useEffect和useLayoutE ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "watch和computed区别\nreact事件和dom原生事件区别 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "watch和computed区别\nreact事件和dom原生事件区别 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "大厂 阿里云 三面过 轻轻松松 无hc  小红书一面挂，很惨 飞书一面挂 四道题勉强两道多会 网易云音乐 可能投错成校招 一面挂 虐的很惨 携程 offer已签 中小厂 同花顺 oc 轻轻松松 已拒契约锁 oc 轻轻松松 已拒泛微 一面过，已拒 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "大厂 阿里云 三面过 轻轻松松 无hc  小红书一面挂，很惨 飞书一面挂 四道题勉强两道多会 网易云音乐 可能投错成校招 一面挂 虐的很惨 携程 offer已签 中小厂 同花顺 oc 轻轻松松 已拒契约锁 oc 轻轻松松 已拒泛微 一面过，已拒 ...  查看更多"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "vue用了什么设计模式   继承几种方案   说一下this   react生命周期   spa和多页区别   如何首屏优化   http   请求头和缓存相关   promise   promise async await可能存在什么问题   数组方法"
+    },
+    {
+      "href": "",
+      "title": "vue用了什么设计模式   继承几种方案   说一下this   react生命周期   spa和多页区别   如何首屏优化   http   请求头和缓存相关   promise   promise async await可能存在什么问题   数组方法"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "一面   问的比较广，反正过了   二面   性能优化   堆   遇到什么印象深刻的难题   设计模式   动画   Object.definePropty 遇到数组变化怎么办。"
+    },
+    {
+      "href": "",
+      "title": "一面   问的比较广，反正过了   二面   性能优化   堆   遇到什么印象深刻的难题   设计模式   动画   Object.definePropty 遇到数组变化怎么办。"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    },
+    {
+      "href": "",
+      "title": "指定圈子 一条动态只能指定一个圈子取消 确定"
+    }
+  ],
+  "scrapedAt": "2026-08-26T09:27:39.488Z"
+}

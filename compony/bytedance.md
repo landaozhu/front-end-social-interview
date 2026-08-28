@@ -9,9 +9,7 @@
 
 5.写一个简单的闭包
 
-6.Cors跨域请求，复杂请求为什么发送options请求
-
-7.实现一个类可以完成事件 on, once, trigger, off，[答案传送门](../interview/handwritten/eventEmitter.md)
+6.实现一个类可以完成事件 on, once, trigger, off，[答案传送门](../interview/handwritten/eventEmitter.md)
 
 8.Vue的compute和watch区别
 

@@ -1,4 +1,2 @@
-- window
-typeof window !== 'undefined' ? console.log('浏览器') : console.log('node')
-- document
-- process
+typeof window !== 'undefined'  // 浏览器
+typeof process !== 'undefined' && process.versions?.node  // Node

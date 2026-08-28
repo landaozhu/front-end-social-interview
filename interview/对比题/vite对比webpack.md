@@ -49,3 +49,7 @@ Webpack 是全能方案：dev + prod 都处理，从 loader 到 HMR 都成熟，
 Vite 最大亮点是 开发速度快，生产输出也高效。
 Webpack 更通用，对老项目兼容和多入口优化更成熟。
 迁移老项目时 Vite 可能遇到 CommonJS、动态 import、loader 插件差异、chunk 拆分等问题，但这些问题可通过配置和插件解决。
+
+追问 1：Vite 为什么 dev 还要对 node_modules 做预构建？不预构建会怎样？
+
+追问 2：你们 Webpack 项目如果迁 Vite，你觉得最可能卡在哪？

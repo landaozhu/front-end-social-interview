@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "passScore": 6,
+  "dueAfterDays": 7,
+  "pickRatios": {
+    "due": 0.35,
+    "notLearned": 0.35,
+    "untested": 0.3
+  },
+  "questions": {
+    "15-范特西新上单2.0项目介绍": {
+      "learned": "no",
+      "lastScore": 5,
+      "lastPracticedAt": "2026-08-27",
+      "firstLearnedAt": null
+    },
+    "06-选座项目完整介绍": {
+      "learned": "yes",
+      "lastScore": 6.5,
+      "lastPracticedAt": "2026-08-27",
+      "firstLearnedAt": "2026-08-27"
+    }
+  }
+}
