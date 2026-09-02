@@ -12,6 +12,8 @@ const {
   pickWeightedFromPool,
   PROJECT_ROOT,
   todayStr,
+  wasAttemptedToday,
+  isRetired,
 } = require('../../spaced-review/scripts/lib');
 
 /** 模拟面试专用画像（与 25k考察列表 profile 独立） */
@@ -80,7 +82,7 @@ function getKnowledgeDomain(q) {
   const p = (q.path || '').replace(/\\/g, '/');
   const haystack = `${p} ${q.category || ''} ${q.title || ''}`;
 
-  if (p.startsWith('interview/微前端/') || /微前端|qiankun/.test(haystack)) {
+  if (p.startsWith('interview/微前端/') || /微前端|qiankun|模块联邦|module federation/.test(haystack)) {
     return 'microfrontend';
   }
   if (p.startsWith('interview/ts/') || /undown和any|ts和java/.test(haystack)) {
@@ -150,9 +152,10 @@ function weightedPickOne(pool, excludeIds = new Set()) {
 }
 
 function buildMarkablePool(data, today, filterFn, minImportance) {
-  let due = getDueQuestions(data, today).filter((d) => filterFn(d.question));
-  let notLearned = getNotLearnedQuestions(data).filter((d) => filterFn(d.question));
-  let untested = getUntestedQuestions(data).filter((d) => filterFn(d.question));
+  const skipToday = (d) => !wasAttemptedToday(d.question, today) && !isRetired(d.question);
+  let due = getDueQuestions(data, today).filter((d) => filterFn(d.question)).filter(skipToday);
+  let notLearned = getNotLearnedQuestions(data).filter((d) => filterFn(d.question)).filter(skipToday);
+  let untested = getUntestedQuestions(data).filter((d) => filterFn(d.question)).filter(skipToday);
 
   if (minImportance) {
     const maxOrder = LEVEL_ORDER[minImportance];
@@ -168,14 +171,29 @@ function buildMarkablePool(data, today, filterFn, minImportance) {
   return { due, notLearned, untested };
 }
 
-function getReadingPool(today) {
-  return scanReadingCodeQuestions().map((q) => ({
-    question: q,
-    stageId: null,
-    stageLabel: '阅读代码',
-    dueDate: today,
-    overdueDays: 0,
-  }));
+function getReadingPool(today, data) {
+  const storedById = new Map((data?.questions || []).map((q) => [q.id, q]));
+  return scanReadingCodeQuestions()
+    .map((q) => {
+      const stored = storedById.get(q.id);
+      const question = stored
+        ? {
+            ...q,
+            retired: stored.retired,
+            retiredAt: stored.retiredAt,
+            lastAttemptedAt: stored.lastAttemptedAt,
+            learned: stored.learned,
+          }
+        : q;
+      return {
+        question,
+        stageId: null,
+        stageLabel: '阅读代码',
+        dueDate: today,
+        overdueDays: 0,
+      };
+    })
+    .filter((d) => !isRetired(d.question) && !wasAttemptedToday(d.question, today));
 }
 
 function toCoverageItem(q, today, stageLabel = '覆盖抽') {
@@ -225,6 +243,7 @@ function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, min
 
   let fallback = data.questions
     .filter(inDomain)
+    .filter((q) => !wasAttemptedToday(q, today) && !isRetired(q))
     .map((q) => toCoverageItem(q, today));
   if (minImportance) {
     const maxOrder = LEVEL_ORDER[minImportance];
@@ -249,7 +268,7 @@ function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, min
 
 function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomainUsed) {
   const prefer = (q, cap) => {
-    if (!isKnowledgeEligible(q) || excludeIds.has(q.id)) return false;
+    if (!isKnowledgeEligible(q) || excludeIds.has(q.id) || wasAttemptedToday(q, today) || isRetired(q)) return false;
     const domainId = getKnowledgeDomain(q);
     if (!domainId || extraDomainUsed.has(domainId)) return false;
     return withinImportance({ question: q }, cap);
@@ -257,7 +276,7 @@ function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomain
 
   const fallback = data.questions
     .filter((q) => {
-      if (!isKnowledgeEligible(q) || excludeIds.has(q.id)) return false;
+      if (!isKnowledgeEligible(q) || excludeIds.has(q.id) || wasAttemptedToday(q, today) || isRetired(q)) return false;
       const domainId = getKnowledgeDomain(q);
       return domainId && !extraDomainUsed.has(domainId);
     })
@@ -326,7 +345,7 @@ function pickSession(data, today = todayStr(), options = {}) {
   const handwrittenPools = buildMarkablePool(
     data, today, isHandwrittenEligible, options.minImportance,
   );
-  const readingPool = getReadingPool(today);
+  const readingPool = getReadingPool(today, data);
   const excludeIds = new Set();
   const knowledgePicks = [];
 
@@ -360,6 +379,7 @@ function pickSession(data, today = todayStr(), options = {}) {
 
   const handwrittenFallback = data.questions
     .filter(isHandwrittenEligible)
+    .filter((q) => !wasAttemptedToday(q, today) && !isRetired(q))
     .map((q) => toCoverageItem(q, today));
   const handwrittenPicks = pickManyFromPools(
     handwrittenPools,
@@ -445,6 +465,7 @@ module.exports = {
   pickSession,
   getKnowledgeDomain,
   scanReadingCodeQuestions,
+  getReadingPool,
   isKnowledgeEligible,
   isHandwrittenEligible,
 };

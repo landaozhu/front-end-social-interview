@@ -63,6 +63,25 @@ function migrateLearnedFields(prev) {
   return { learned, firstLearnedAt };
 }
 
+function wasAttemptedToday(q, today = todayStr()) {
+  if (!q) return false;
+  if (q.lastAttemptedAt === today) return true;
+  if (q.forgottenAt === today) return true;
+  return false;
+}
+
+function isRetired(q) {
+  return Boolean(q && q.retired);
+}
+
+function excludeAttemptedToday(pool, today = todayStr()) {
+  return pool.filter((d) => !wasAttemptedToday(d.question, today));
+}
+
+function excludeRetired(pool) {
+  return pool.filter((d) => !isRetired(d.question));
+}
+
 /** 纠正非法状态：✗/未测 不得有首次学会或 R 列日期 */
 function sanitizeQuestionState(q) {
   if (q.learned === 'yes') {
@@ -146,7 +165,7 @@ function pickWeightedFromPool(pool) {
 
 function getNotLearnedQuestions(data) {
   return data.questions
-    .filter((q) => q.learned === 'no')
+    .filter((q) => q.learned === 'no' && !isRetired(q))
     .map((q) => ({
       question: q,
       stageId: null,
@@ -159,7 +178,7 @@ function getNotLearnedQuestions(data) {
 
 function getUntestedQuestions(data) {
   return data.questions
-    .filter((q) => q.learned !== 'yes' && q.learned !== 'no')
+    .filter((q) => q.learned !== 'yes' && q.learned !== 'no' && !isRetired(q))
     .map((q) => ({
       question: q,
       stageId: null,
@@ -419,6 +438,11 @@ function initOrSyncData() {
       importanceLabel: getImportanceLabel(importance),
       importanceLocked: prev?.importanceLocked ?? false,
     };
+    if (prev?.lastAttemptedAt) question.lastAttemptedAt = prev.lastAttemptedAt;
+    if (prev?.retired) {
+      question.retired = true;
+      if (prev.retiredAt) question.retiredAt = prev.retiredAt;
+    }
     sanitizeQuestionState(question);
     return question;
   });
@@ -481,7 +505,7 @@ function getStageDueDate(question, stageId) {
 
 function getDueQuestions(data, today = todayStr()) {
   return data.questions
-    .filter((q) => q.learned === 'yes' && q.firstLearnedAt)
+    .filter((q) => q.learned === 'yes' && q.firstLearnedAt && !isRetired(q))
     .map((q) => {
       const stageId = getCurrentStage(q);
       if (!stageId || !isStageDue(q, stageId, today)) return null;
@@ -521,6 +545,10 @@ function pickRandomDue(data, today = todayStr(), options = {}) {
     due, notLearned, untested, options.minImportance,
   ));
 
+  due = excludeAttemptedToday(due, today);
+  notLearned = excludeAttemptedToday(notLearned, today);
+  untested = excludeAttemptedToday(untested, today);
+
   const { picked, pickSource } = pickWithBalancedRatio(
     due, notLearned, untested, data.pickRatios,
   );
@@ -541,6 +569,7 @@ function markResult(data, questionId, score, date = todayStr()) {
   if (passed) {
     q.learned = 'yes';
     if (!q.firstLearnedAt) q.firstLearnedAt = date;
+    q.lastAttemptedAt = date;
     delete q.sprintAt;
 
     const stageId = getCurrentStage(q);
@@ -563,6 +592,7 @@ function markResult(data, questionId, score, date = todayStr()) {
   q.learned = 'no';
   q.firstLearnedAt = null;
   q.reviews = emptyReviews();
+  q.lastAttemptedAt = date;
   delete q.sprintAt;
   data.updatedAt = date;
   saveData(data);
@@ -575,18 +605,58 @@ function markResult(data, questionId, score, date = todayStr()) {
     date,
   };
 }
+
+function ensureQuestionForRetire(data, questionId) {
+  const existing = data.questions.find((x) => x.id === questionId);
+  if (existing) return existing;
+
+  const isReadingJs = /^interview\/阅读代码题\/.+\.js$/i.test(questionId);
+  const abs = path.join(PROJECT_ROOT, questionId);
+  if (!isReadingJs || !fs.existsSync(abs)) {
+    throw new Error(`题目不存在: ${questionId}`);
+  }
+
+  const maxOrder = data.questions.reduce((m, x) => Math.max(m, x.order || 0), 0);
+  const q = {
+    id: questionId,
+    title: path.basename(questionId, '.js'),
+    category: '阅读代码题',
+    source: '阅读代码题',
+    path: questionId,
+    learned: null,
+    firstLearnedAt: null,
+    reviews: emptyReviews(),
+    order: maxOrder + 1,
+    importance: 'P1',
+    importanceLabel: 'P1 高频',
+    importanceLocked: false,
+  };
+  data.questions.push(q);
+  return q;
+}
+
+function markRetired(data, questionId, date = todayStr()) {
+  const q = ensureQuestionForRetire(data, questionId);
+  q.retired = true;
+  q.retiredAt = date;
+  data.updatedAt = date;
+  saveData(data);
+  return { question: q, retired: true, date };
+}
+
 function formatReviewDate(date) {
   return date || '';
 }
 
 function syncMarkdownTable(data) {
   const stages = data.reviewStages;
-  const header = ['#', '题目', '是否学会', '重要程度', '来源', '首次学会', ...stages.map((s) => s.label)];
-  const sep = header.map((_, i) => (i < 6 ? '---' : ':---:'));
+  const header = ['#', '题目', '是否学会', '不再提问', '重要程度', '来源', '首次学会', ...stages.map((s) => s.label)];
+  const sep = header.map((_, i) => (i < 7 ? '---' : ':---:'));
   const rows = data.questions.map((q) => [
     String(q.order),
     q.title,
     formatLearned(q),
+    q.retired ? '✓' : '',
     q.importanceLabel || q.importance || '',
     q.source,
     q.firstLearnedAt || '',
@@ -625,14 +695,15 @@ function syncMarkdownTable(data) {
   const componyCount = data.questions.filter((q) => q.source === 'compony').length;
   const nowcoderCount = data.questions.filter((q) => q.source === '牛客网面经').length;
   const summaryCount = data.questions.filter((q) => q.source === '面试题汇总').length;
+  const retiredCount = data.questions.filter(isRetired).length;
   const md = `# 25k考察列表
 
 > 题目来源：\`interview/\`（${interviewCount}）· \`compony/\`（${componyCount}）· 牛客网面经（${nowcoderCount}）· 面试题汇总（${summaryCount}）= **${data.questions.length}** 道  
 > 画像：**兰为鹏 · 6年经验前端（上海）** · 按 **简历 + 2026 趋势** 标注重要程度  
 > 简历未写的内容（如 CI/CD、Monorepo、NestJS、埋点）已降级为 P3  
 > 分级：P0 必考 ${impCounts.P0 || 0} · P1 高频 ${impCounts.P1 || 0} · P2 了解 ${impCounts.P2 || 0} · P3 冷门 ${impCounts.P3 || 0}  
-> 学会状态：✓ 已学会 ${learnedStats.yes} · ✗ 未学会 ${learnedStats.no} · 未测 ${learnedStats.blank}  
-> 抽题策略：${ratioText}（空池时其余按比例分配）  
+> 学会状态：✓ 已学会 ${learnedStats.yes} · ✗ 未学会 ${learnedStats.no} · 未测 ${learnedStats.blank} · 不再提问 ${retiredCount}  
+> 抽题策略：${ratioText}（空池时其余按比例分配）；**当天已做过的题（对错都算）当天不再抽**；**不再提问永不抽**（须你主动说才打钩）  
 > 数据文件：[\`25k考察列表.json\`](./25k考察列表.json)  
 > 最后更新：${data.updatedAt}
 
@@ -643,7 +714,9 @@ function syncMarkdownTable(data) {
 3. **25k 达标** → 是否学会 **✓**，「首次学会」写入日期，**从该日起**算遗忘曲线
 4. **未达标** → **✗** 未学会，**清空**首次学会与 R 列，**不进入**遗忘曲线
 5. **未测**（空）→ 不参与遗忘曲线；与 ✗、到期题按设定比例混抽
-6. 更新题库：\`node .cursor/skills/spaced-review/scripts/init-questions.js\`
+6. **当天已做过**（对错都算）→ 当天不再抽
+7. 说 **「这题不再提问」** → 打钩后**永远不再抽**（不会因为通过/没过自动打）
+8. 更新题库：\`node .cursor/skills/spaced-review/scripts/init-questions.js\`
 
 ## 是否学会说明
 
@@ -652,6 +725,8 @@ function syncMarkdownTable(data) {
 | **✓** | 25k 达标；「首次学会」= 锚点日期（如 2026-08-26） |
 | **✗** | 考过未达标 / 同步标记；**无**首次学会/R 列；**不参与**遗忘曲线 |
 | **（空）** | 未测；与 ✗、到期题按设定比例混抽 |
+
+「不再提问」列打 ✓ = 你主动说毕业了，抽题/模拟面试都跳过。通过或没过都**不会**自动打这钩。
 
 ## 遗忘曲线（仅 ✓ 已学会）
 
@@ -695,6 +770,8 @@ R 列显示**实际日期**（如 \`2026-08-27\`），空白 = 该节点尚未�
 - **未学会 ✗**：${notLearned.length} 道
 - **未测（空）**：${untested.length} 道
 - **混抽比例**：${ratioText}
+- **当天已做过（对错都算）**：当天不再抽
+- **不再提问**：${retiredCount} 道（永不抽，须主动说才打钩）
 ${Object.entries(dueByStage).map(([k, v]) => `- ${k} 到期：${v} 道`).join('\n') || '- 暂无到期复习 🎉'}
 
 ## 题目进度表
@@ -722,6 +799,10 @@ module.exports = {
   getDueQuestions,
   getNotLearnedQuestions,
   getUntestedQuestions,
+  wasAttemptedToday,
+  isRetired,
+  excludeAttemptedToday,
+  excludeRetired,
   pickWithBalancedRatio,
   sanitizeData,
   sanitizeQuestionState,
@@ -736,6 +817,7 @@ module.exports = {
   formatLearned,
   markPass,
   markResult,
+  markRetired,
   syncMarkdownTable,
   getCurrentStage,
   classifyImportance,

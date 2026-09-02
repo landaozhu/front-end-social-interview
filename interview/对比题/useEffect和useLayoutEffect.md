@@ -10,6 +10,8 @@
 1.函数签名：参数、返回值
 2.useEffect 90%场景是：接口请求、定时器、事件监听、日志等不操作页面布局的逻辑
 3.执行dom更新是什么：包含通过setState和修改原生dom api
+4.两个 Hook 的函数签名一样吗？cleanup 呢？
+cleanup 两个都有：返回的函数会在下次 effect 前 / 卸载时跑。useLayoutEffect 的 cleanup 也在绘制前、同步执行。
 ## 知识点补充
 执行过程
 React render

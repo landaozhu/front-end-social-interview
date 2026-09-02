@@ -6,7 +6,7 @@ const modeArg = args.find((a) => a.startsWith('--mode='));
 const clusterArg = args.find((a) => a.startsWith('--cluster='));
 
 const result = pickSession({
-  mode: modeArg ? modeArg.split('=')[1] : 'project',
+  mode: modeArg ? modeArg.split('=')[1] : 'full',
   cluster: clusterArg ? clusterArg.split('=')[1] : undefined,
 });
 

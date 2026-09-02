@@ -32,6 +32,7 @@ function isAlgoOrDs(text) {
 const INTERVIEW_TITLE_OVERRIDES = {
   'interview/网络/跨域.md': '什么是跨域？同源策略是什么？常见跨域解决方案有哪些？',
   'interview/微前端/微前端的沙箱隔离机制.md': '微前端的沙箱隔离机制是怎么做的？JS / CSS 分别怎么隔离，哪些要自己收？',
+  'interview/微前端/模块联邦.md': '什么是模块联邦？和 qiankun 有什么区别？上单为什么没用它？',
   'interview/对比题/ref对比reactive.md': 'ref 和 reactive 有什么区别？',
 };
 

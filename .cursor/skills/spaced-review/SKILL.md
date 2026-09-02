@@ -5,6 +5,7 @@ description: >-
   仅 ✓ 已学会才走遗忘曲线（锚点=首次学会日期）。
   抽题三类混抽：到期 35% · ✗ 未学会 35% · 未测 30%。
   25k 达标打 ✓，未达标打 ✗（清空日期）。
+  「不再提问」须用户主动说才打钩，之后永不抽。
   当用户说自我考察、随机提问、复习面试题时使用。
 ---
 
@@ -24,6 +25,10 @@ description: >-
 
 某池为空时，其余池按原比例分配。
 
+**当天已经做过的题（达标或未达标）当天绝不再抽。**
+
+**不再提问**：只有用户主动说「这题不再提问」才打钩，之后永远不抽。通过/没过都不会自动打。
+
 ## 日期怎么算
 
 锚点 = **首次学会**（第一次打 ✓ 的日期）
@@ -39,6 +44,7 @@ description: >-
 ```bash
 node .cursor/skills/spaced-review/scripts/pick-question.js
 node .cursor/skills/spaced-review/scripts/mark-result.js "<id>" --score=7
+node .cursor/skills/spaced-review/scripts/mark-result.js --retire "<id>"
 ```
 
 ## 25k 及格线

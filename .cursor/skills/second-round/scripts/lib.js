@@ -1,9 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
+const algoQuiz = require('../../algorithm-quiz/scripts/lib');
+
 const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
 const BANK_DIR = path.join(PROJECT_ROOT, '二面面试题');
 const PROGRESS_FILE = path.join(__dirname, '..', 'progress.json');
+const HANDWRITTEN_DIR = 'interview/handwritten';
 
 const PASS_SCORE = 6;
 const DUE_AFTER_DAYS = 7;
@@ -106,6 +109,153 @@ const QUESTION_META = {
   '40-你怎么做技术方案设计': { cluster: 'framework', importance: 'P0', must: true },
   '41-uni-app兼容题-维护向怎么答': { cluster: 'seat', importance: 'P0', must: true },
 };
+
+/**
+ * 中大厂 25k 前端二面手写：比一面少、比一面难。
+ * 一面常见防抖/flatten；二面更常考 Promise、并发、深拷贝、EventEmitter。
+ */
+const SECOND_ROUND_HANDWRITTEN = [
+  {
+    file: 'promise.md',
+    title: '手写 Promise（then 链）',
+    weight: 3,
+    ask: '手写简化版 `Promise`：支持 `then` 链式、异步 resolve。不必完整 A+。',
+    pass: '能 then 链式拿到值；同步/异步 resolve 都对',
+  },
+  {
+    file: '字节：实现一下并发请求.md',
+    title: '控制并发请求',
+    weight: 3,
+    ask: '手写 `multiRequest(urls, maxNum)`：最多同时 maxNum 个请求，全部完成后 resolve 结果数组（顺序与 urls 一致）。',
+    pass: '并发上限正确、结束时结果齐、顺序不错位',
+  },
+  {
+    file: '深拷贝.md',
+    title: '深拷贝',
+    weight: 3,
+    ask: '手写 `cloneDeep(obj)`，要处理循环引用（可用 WeakMap）。',
+    pass: '普通对象/数组对；循环引用不爆栈',
+  },
+  {
+    file: 'eventEmitter.md',
+    title: 'EventEmitter',
+    weight: 3,
+    ask: '手写 `EventEmitter`：`on` / `off` / `emit` / `once`。',
+    pass: '订阅、触发、取消、once 只触发一次',
+  },
+  {
+    file: 'call、apply、bind.md',
+    title: 'call / apply / bind',
+    weight: 2,
+    ask: '手写 `Function.prototype.myCall`、`myApply`、`myBind`（bind 要支持柯里化）。',
+    pass: 'this 绑定对；bind 能分批传参',
+  },
+  {
+    file: '防抖.md',
+    title: '防抖 debounce',
+    weight: 2,
+    ask: '手写 `debounce(fn, wait)`，可带 leading/trailing 之一说明即可。',
+    pass: '连续触发只在停顿后执行（或按你声明的 leading 行为一致）',
+  },
+  {
+    file: '节流.md',
+    title: '节流 throttle',
+    weight: 2,
+    ask: '手写 `throttle(fn, wait)`。',
+    pass: '间隔内最多执行一次，能跑',
+  },
+  {
+    file: '数组扁平化.md',
+    title: '数组扁平化',
+    weight: 2,
+    ask: '手写 `flatten(arr, depth)`，depth 默认 Infinity。',
+    pass: '多层嵌套结果对；depth=1 只展一层',
+  },
+  {
+    file: 'new.md',
+    title: '手写 new',
+    weight: 1,
+    ask: '手写 `myNew(Constructor, ...args)`。',
+    pass: '原型链对、返回对象；构造函数 return 对象时以它为准',
+  },
+  {
+    file: 'instanceOf.js',
+    title: '手写 instanceof',
+    weight: 1,
+    ask: '手写 `myInstanceof(obj, Ctor)`。',
+    pass: '沿原型链查找，结果与 instanceof 一致',
+  },
+];
+
+/** 二面算法：中等，1 道。排除一面级插入/选择，排除冷门桶/计数/基数/希尔 */
+const SECOND_ROUND_ALGO_FILES = new Set([
+  '快排.md',
+  '查找.md',
+  '动态规划.md',
+  '归并排序.md',
+  '堆排序.md',
+  '背包问题.md',
+  '最长公共子串.md',
+]);
+
+function practicedToday(progress, id, today) {
+  const rec = progress.questions[id];
+  return Boolean(rec && rec.lastPracticedAt === today);
+}
+
+function pickWeightedList(items, getWeight) {
+  if (!items.length) return null;
+  const total = items.reduce((sum, item) => sum + getWeight(item), 0);
+  let r = Math.random() * total;
+  for (const item of items) {
+    r -= getWeight(item);
+    if (r <= 0) return item;
+  }
+  return items[items.length - 1];
+}
+
+function pickSecondRoundHandwritten(progress, today) {
+  const pool = SECOND_ROUND_HANDWRITTEN.filter((item) => {
+    const id = `${HANDWRITTEN_DIR}/${item.file}`;
+    return !practicedToday(progress, id, today);
+  });
+  const chosen = pickWeightedList(pool.length ? pool : SECOND_ROUND_HANDWRITTEN, (x) => x.weight);
+  if (!chosen) return null;
+  const rel = `${HANDWRITTEN_DIR}/${chosen.file}`;
+  return {
+    id: rel,
+    title: chosen.title,
+    path: rel,
+    type: 'handwritten',
+    ask: chosen.ask,
+    pass: chosen.pass,
+    passThreshold: PASS_SCORE,
+    markCommand: `node .cursor/skills/second-round/scripts/mark-question.js "${rel}" --score=<0-10>`,
+  };
+}
+
+function pickSecondRoundAlgorithm(progress, today) {
+  const all = algoQuiz.scanAlgorithmQuestions()
+    .filter((q) => SECOND_ROUND_ALGO_FILES.has(path.basename(q.path)));
+  const pool = all.filter((q) => !practicedToday(progress, q.id, today));
+  const chosen = pickWeightedList(pool.length ? pool : all, (q) => (
+    q.frequency === 'high' ? 3 : 2
+  ));
+  if (!chosen) return null;
+  return {
+    id: chosen.id,
+    title: chosen.title,
+    path: chosen.path,
+    type: 'algorithm',
+    method: chosen.method,
+    frequency: chosen.frequency,
+    frequencyLabel: chosen.frequencyLabel,
+    ask: chosen.ask,
+    frontendBar: chosen.frontendBar,
+    passThreshold: PASS_SCORE,
+    markCommand: `node .cursor/skills/second-round/scripts/mark-question.js "${chosen.id}" --score=<0-10>`,
+  };
+}
 
 function todayStr(date = new Date()) {
   const y = date.getFullYear();
@@ -274,7 +424,10 @@ function pickSession(options = {}) {
   const today = todayStr();
   const progress = loadProgress();
   const bank = scanBank().map((q) => mergeQuestion(q, progress));
-  const mode = options.mode === 'single' ? 'single' : 'project';
+  const mode = options.mode === 'single' || options.mode === 'project'
+    ? options.mode
+    : 'full';
+  const includeCoding = mode === 'full';
 
   if (bank.length === 0) {
     return {
@@ -330,10 +483,15 @@ function pickSession(options = {}) {
 
   const cluster = CLUSTERS[picked.cluster];
   const related = relatedOf(picked.cluster, bank, picked.id).map((q) => toPayload(q));
+  const handwritten = includeCoding ? pickSecondRoundHandwritten(progress, today) : null;
+  const algorithm = includeCoding ? pickSecondRoundAlgorithm(progress, today) : null;
+  const sessionType = includeCoding
+    ? '二面（项目深挖 + 1 手写 + 1 算法）'
+    : mode === 'single' ? '二面单题' : '二面项目深挖';
 
   return {
     session: {
-      type: mode === 'single' ? '二面单题' : '二面项目深挖',
+      type: sessionType,
       mode,
       round: PROFILE.interviewRound,
       interviewer: PROFILE.interviewer,
@@ -341,6 +499,8 @@ function pickSession(options = {}) {
       targetSalary: PROFILE.targetSalaryLabel,
       yearsOfExperience: PROFILE.yearsOfExperience,
       followUpRounds: mode === 'single' ? 2 : 4,
+      questionCount: includeCoding ? 3 : 1,
+      parts: includeCoding ? ['project', 'handwritten', 'algorithm'] : ['project'],
       pickSource,
     },
     dueStats: statsFrom(bank, today),
@@ -348,10 +508,14 @@ function pickSession(options = {}) {
       ? { id: cluster.id, name: cluster.name, opener: cluster.opener }
       : null,
     question: toPayload(picked),
-    relatedQuestions: mode === 'project' ? related : [],
+    relatedQuestions: mode === 'single' ? [] : related,
+    handwritten,
+    algorithm,
     markCommand: `node .cursor/skills/second-round/scripts/mark-question.js "${picked.id}" --score=<0-10>`,
     passThreshold: PASS_SCORE,
-    note: '综合分 ≥6 打 ✓；面试中途不泄露题库答案；追问须超出「常见追问」',
+    note: includeCoding
+      ? '顺序：项目深挖 → 1 道 JS 手写 → 1 道中等算法。综合分 ≥6 打 ✓。面试中途不泄露题库答案；不要提前公布手写/算法题名。'
+      : '综合分 ≥6 打 ✓；面试中途不泄露题库答案；追问须超出「常见追问」',
   };
 }
 
@@ -401,4 +565,6 @@ module.exports = {
   loadProgress,
   pickSession,
   markQuestion,
+  SECOND_ROUND_HANDWRITTEN,
+  SECOND_ROUND_ALGO_FILES,
 };

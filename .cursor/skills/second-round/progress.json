@@ -19,6 +19,24 @@
       "lastScore": 6.5,
       "lastPracticedAt": "2026-08-27",
       "firstLearnedAt": "2026-08-27"
+    },
+    "30-前端组长职责与做法": {
+      "learned": "no",
+      "lastScore": 4,
+      "lastPracticedAt": "2026-09-01",
+      "firstLearnedAt": null
+    },
+    "interview/handwritten/字节：实现一下并发请求.md": {
+      "learned": "no",
+      "lastScore": 1,
+      "lastPracticedAt": "2026-09-02",
+      "firstLearnedAt": null
+    },
+    "interview/algorithm/快排.md": {
+      "learned": "no",
+      "lastScore": 1,
+      "lastPracticedAt": "2026-09-02",
+      "firstLearnedAt": null
     }
   }
 }

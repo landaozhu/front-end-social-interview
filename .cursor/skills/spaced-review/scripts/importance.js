@@ -19,7 +19,7 @@ const P3_RE =
 
 /** 通用高频（与简历无关的基础盘） */
 const P0_RE =
-  /eventloop|event loop|事件循环|nexttick|nextTick|响应式|vue3|vue 3|vue2和vue3|composition|编译优化|patchFlag|静态提升|事件缓存|useEffect|useLayoutEffect|hooks|虚拟dom|virtual dom|diff|fiber|setState|redux|vuex|webpack|HMR|热更新|打包|构建|tree shaking|代码分割|import\(\)|首屏|FCP|性能优化|渲染|重排|重绘|回流|跨域|cors|jsonp|缓存|协商缓存|强缓存|http|https|tcp|udp|url输入|中间件|洋葱|koa|egg|node.*event|微前端|iframe|xss|csrf|typescript|middleware|深拷贝|debounce|节流|防抖|promise|eventEmitter|call、apply、bind|闭包|必包|原型链|原型和原型|this|模块化|esModules|commonjs|computed对比watch|watch.*computed|路由模式|为什么不用iframe|instanceof|ajax|async|await|proxy|ref|reactive|生命周期|组件通信|组件之间|react18|react 18|mixin|slot|插槽|vue更新|beforeDestroy|插件|异步组件|Context|HOC|受控组件|自定义hook|performance|单线程|浏览器结构|渲染瓶颈|contentType|headers|http状态码|存储|微任务|宏任务|setTimeout|懒加载|预加载|Koa 洋葱|Node Event Loop|浏览器 Event Loop/i;
+  /eventloop|event loop|事件循环|nexttick|nextTick|响应式|vue3|vue 3|vue2和vue3|composition|编译优化|patchFlag|静态提升|事件缓存|useEffect|useLayoutEffect|hooks|虚拟dom|virtual dom|diff|fiber|setState|redux|vuex|webpack|HMR|热更新|打包|构建|tree shaking|代码分割|import\(\)|首屏|FCP|性能优化|渲染|重排|重绘|回流|跨域|cors|jsonp|缓存|协商缓存|强缓存|http|https|tcp|udp|url输入|中间件|洋葱|koa|egg|node.*event|微前端|iframe|模块联邦|module federation|xss|csrf|typescript|middleware|深拷贝|debounce|节流|防抖|promise|eventEmitter|call、apply、bind|闭包|必包|原型链|原型和原型|this|模块化|esModules|commonjs|computed对比watch|watch.*computed|路由模式|为什么不用iframe|instanceof|ajax|async|await|proxy|ref|reactive|生命周期|组件通信|组件之间|react18|react 18|mixin|slot|插槽|vue更新|beforeDestroy|插件|异步组件|Context|HOC|受控组件|自定义hook|performance|单线程|浏览器结构|渲染瓶颈|contentType|headers|http状态码|存储|微任务|宏任务|setTimeout|懒加载|预加载|Koa 洋葱|Node Event Loop|浏览器 Event Loop/i;
 
 const P1_RE =
   /flex|bfc|盒模型|position|移动端适配|CSS选择器|css3动画|硬件加速|垂直居中|隐藏元素|长度单位|伪类|伪元素|rem|viewport|transform|dom$|对象$|数组的方法|箭头函数|严格模式|作用域|new做了什么|深拷贝|浅拷贝|手写|observer|可选链|localStorage|bind区别|interface|高级类型|方法重载|ts有啥|react原理|pureComponent|memo|父组件|子组件|事件系统|为什么要用虚拟|webpack原理|常用配置|提高打包|减少包体积|打包构建|HMR原理|node中的|什么是中间件|什么是洋葱|设计模式|事件冒泡|捕获|Object和Map|数组和set|new\.md|proxy\.md|promise\.md|Etag|vite对比webpack|ssr|eslint|灰度|分包|按需加载|qiankun|umi|ant-design|java.*bff|bff|jest|lighthouse/i;
@@ -57,7 +57,7 @@ const RESUME_VITE_STANDALONE_RE = /interview\/vite\//;
 
 /** 简历核心（猫眼/携程/宏波）— 至少 P1 */
 const RESUME_CORE_RE =
-  /微前端|qiankun|为什么不用iframe|webpack|打包|构建|编译|HMR|热更新|首屏|性能|优化|FCP|lighthouse|vue3|vue2|composition|响应式|nexttick|vuex|react|hooks|redux|ssr|typescript|中间件|洋葱|koa|egg|eventloop|事件循环|跨域|缓存|协商|强缓存|http|https|小程序|分包|按需加载|懒加载|代码分割|eslint|灰度|gateway|umi|选座|antd|ant-design|java.*bff|bff|灰度发布|静态资源|网关|webpack升级|并行|串行改并行/i;
+  /微前端|qiankun|模块联邦|module federation|为什么不用iframe|webpack|打包|构建|编译|HMR|热更新|首屏|性能|优化|FCP|lighthouse|vue3|vue2|composition|响应式|nexttick|vuex|react|hooks|redux|ssr|typescript|中间件|洋葱|koa|egg|eventloop|事件循环|跨域|缓存|协商|强缓存|http|https|小程序|分包|按需加载|懒加载|代码分割|eslint|灰度|gateway|umi|选座|antd|ant-design|java.*bff|bff|灰度发布|静态资源|网关|webpack升级|并行|串行改并行/i;
 
 const LEVEL_ORDER = ['P0', 'P1', 'P2', 'P3'];
 
