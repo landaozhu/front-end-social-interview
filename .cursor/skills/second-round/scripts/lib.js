@@ -10,7 +10,7 @@ const HANDWRITTEN_DIR = 'interview/handwritten';
 
 const PASS_SCORE = 6;
 const DUE_AFTER_DAYS = 7;
-const PICK_RATIOS = { due: 0.35, notLearned: 0.35, untested: 0.3 };
+const PICK_RATIOS = { due: 0.25, notLearned: 0.25, untested: 0.5 };
 
 const PROFILE = {
   name: '兰为鹏',

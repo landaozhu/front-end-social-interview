@@ -53,7 +53,7 @@ const LEVEL_ORDER = { P0: 0, P1: 1, P2: 2, P3: 3 };
 
 /** 八股文排除：无独立答案文件的目录/类目 */
 const KNOWLEDGE_EXCLUDE_PATH_RE =
-  /^interview\/(handwritten|阅读代码题|优化|场景题)\//;
+  /^interview\/(handwritten|阅读代码题|优化|场景题|agent)\//;
 
 /**
  * 八股文选题范围（必须在 25k考察列表 内，且 path 指向 interview/ 下独立 .md 答案）

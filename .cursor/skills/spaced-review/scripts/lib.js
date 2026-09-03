@@ -3,7 +3,7 @@ const path = require('path');
 const { parseComponyMarkdown, normalizeTitle, isAlgoOrDs, isCodeTitle } = require('./parse-compony');
 const { resolveInterviewTitle } = require('./question-utils');
 const { classifyImportance, getImportanceWeight, getImportanceLabel, RESUME_PROFILE } = require('./importance');
-const { shouldExcludeQuestion } = require('./question-filters');
+const { shouldExcludeQuestion, isAgentTrack } = require('./question-filters');
 const { parseInterviewSummary } = require('./parse-interview-summary');
 const { parseNowcoderPosts } = require('./parse-nowcoder');
 
@@ -37,8 +37,9 @@ const SKIP_FILES = new Set([
 const INTERVIEW_ALGO_TITLE_RE =
   /排序|快排|动态规划|二叉|链表|栈|队列|堆|查找|递归|击鼓传花|随机验证码|和为[nm]|数组顺序打乱|并发请求/i;
 
-/** 三类抽题比例：到期复习 / ✗ 未学会 / 未测（空池时按剩余比例分配） */
-const PICK_RATIOS = { due: 0.35, notLearned: 0.35, untested: 0.30 };
+/** 三类抽题比例：到期复习 / ✗ 未学会 / 未测（空池时按剩余比例分配）
+ * 未测高于到期：避免只会已过题、真实面试大量未覆盖。 */
+const PICK_RATIOS = { due: 0.25, notLearned: 0.25, untested: 0.50 };
 
 /** 25k 一面达标分数线（按重要程度） */
 const PASS_SCORE_25K = { P0: 6, P1: 6, P2: 5, P3: 5 };
@@ -548,6 +549,11 @@ function pickRandomDue(data, today = todayStr(), options = {}) {
   due = excludeAttemptedToday(due, today);
   notLearned = excludeAttemptedToday(notLearned, today);
   untested = excludeAttemptedToday(untested, today);
+
+  const keepFrontend = (d) => !isAgentTrack(d.question);
+  due = due.filter(keepFrontend);
+  notLearned = notLearned.filter(keepFrontend);
+  untested = untested.filter(keepFrontend);
 
   const { picked, pickSource } = pickWithBalancedRatio(
     due, notLearned, untested, data.pickRatios,

@@ -2,7 +2,7 @@ nextTick 内部维护了一个 callbacks 队列和一个 pending 状态。每次
 ## 追问
 1. 为什么不用宏任务
 因为Vue会通过nextTick完成异步调用更新队列，最终完成dompach。微任务会在同步代码执行完成之后，绘制之前进行执行。因此可以让dom patch和用户设置的nextTick尽快完成调用。如果使用宏任务，更新会推迟到下一轮任务，浏览器中间可能会绘制旧dom或者中间状态，造成额外渲染，甚至页面卡顿
-2. 代码阅读
+2. 代码阅读（**不再提问** · 2026-09-02 用户要求永不出）
 ```javascript
 console.log('start')
 this.$nextTick(()=>{

@@ -72,6 +72,11 @@ function isArticleNotQuestion(item) {
   return false;
 }
 
+function isAgentTrack(item) {
+  const relPath = (item.path || '').replace(/\\/g, '/');
+  return relPath.startsWith('interview/agent/');
+}
+
 function shouldExcludeQuestion(item) {
   const relPath = (item.path || '').replace(/\\/g, '/');
   const combined = `${item.title || ''} ${relPath}`;
@@ -93,5 +98,6 @@ module.exports = {
   FOLLOWUP_DIRS,
   isFollowUpSubtopic,
   isArticleNotQuestion,
+  isAgentTrack,
   shouldExcludeQuestion,
 };

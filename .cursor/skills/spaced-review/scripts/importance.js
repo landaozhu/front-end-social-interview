@@ -37,6 +37,7 @@ const CATEGORY_DEFAULT = {
   浏览器: 'P0',
   ts: 'P1',
   handwritten: 'P1',
+  agent: 'P1',
   js: 'P1',
   css: 'P2',
   html: 'P3',
@@ -98,6 +99,10 @@ function classifyImportance(question) {
   const combined = `${title} ${category} ${path}`;
 
   if (RESUME_DEMOTE_RE.test(combined)) return 'P3';
+
+  // Agent 独立题池：原理/LangChain = P1，Python 基础 = P2（简历尚未当核心卖点）
+  if (/interview\/agent\/python/.test(path)) return 'P2';
+  if (/interview\/agent\//.test(path)) return 'P1';
 
   let level = baseClassify(question);
 

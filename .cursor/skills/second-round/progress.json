@@ -3,9 +3,9 @@
   "passScore": 6,
   "dueAfterDays": 7,
   "pickRatios": {
-    "due": 0.35,
-    "notLearned": 0.35,
-    "untested": 0.3
+    "due": 0.25,
+    "notLearned": 0.25,
+    "untested": 0.5
   },
   "questions": {
     "15-范特西新上单2.0项目介绍": {
