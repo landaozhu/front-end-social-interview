@@ -22,7 +22,7 @@
       "Vite 深度（对比题除外）"
     ]
   },
-  "updatedAt": "2026-09-03",
+  "updatedAt": "2026-09-05",
   "pickRatios": {
     "due": 0.25,
     "notLearned": 0.25,
@@ -290,7 +290,7 @@
       "order": 10,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "compony/tenxun/1.md::浏览器的渲染原理",
@@ -364,10 +364,10 @@
       "category": "compony/ali",
       "source": "compony",
       "path": "compony/ali/1.md",
-      "learned": "no",
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-04",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-04",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -378,7 +378,8 @@
       "order": 14,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "compony/duandian/1.md::如何减少网络请求次数",
@@ -510,7 +511,7 @@
       "order": 20,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "compony/duandian/1.md::雪碧图如何使用",
@@ -689,6 +690,28 @@
       "importanceLocked": false
     },
     {
+      "id": "compony/duandian/1.md::cdn原理",
+      "title": "cdn原理",
+      "category": "compony/duandian",
+      "source": "compony",
+      "path": "compony/duandian/1.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 29,
+      "importance": "P2",
+      "importanceLabel": "P2 了解",
+      "importanceLocked": false
+    },
+    {
       "id": "compony/速境生活科技.md::CICD",
       "title": "CI/CD",
       "category": "compony",
@@ -705,7 +728,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 29,
+      "order": 30,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -727,7 +750,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 30,
+      "order": 31,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -749,7 +772,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 31,
+      "order": 32,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -771,7 +794,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 32,
+      "order": 33,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -793,7 +816,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 33,
+      "order": 34,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -815,7 +838,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 34,
+      "order": 35,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -837,7 +860,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 35,
+      "order": 36,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -859,9 +882,53 @@
         "r5": null,
         "r6": null
       },
-      "order": 36,
+      "order": 37,
       "importance": "P1",
       "importanceLabel": "P1 高频",
+      "importanceLocked": false
+    },
+    {
+      "id": "compony/duandian/1.md::file-loader url-loader区别",
+      "title": "file-loader url-loader区别",
+      "category": "compony/duandian",
+      "source": "compony",
+      "path": "compony/duandian/1.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 38,
+      "importance": "P2",
+      "importanceLabel": "P2 了解",
+      "importanceLocked": false
+    },
+    {
+      "id": "compony/duandian/1.md::file-loader,url-loader的区别",
+      "title": "file-loader,url-loader的区别",
+      "category": "compony/duandian",
+      "source": "compony",
+      "path": "compony/duandian/1.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 39,
+      "importance": "P2",
+      "importanceLabel": "P2 了解",
       "importanceLocked": false
     },
     {
@@ -881,7 +948,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 37,
+      "order": 40,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -903,7 +970,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 38,
+      "order": 41,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -925,7 +992,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 39,
+      "order": 42,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -947,7 +1014,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 40,
+      "order": 43,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -969,7 +1036,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 41,
+      "order": 44,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -991,7 +1058,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 42,
+      "order": 45,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -1013,7 +1080,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 43,
+      "order": 46,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1035,7 +1102,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 44,
+      "order": 47,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1057,7 +1124,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 45,
+      "order": 48,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1079,7 +1146,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 46,
+      "order": 49,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -1101,7 +1168,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 47,
+      "order": 50,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1123,7 +1190,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 48,
+      "order": 51,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1145,9 +1212,31 @@
         "r5": null,
         "r6": null
       },
-      "order": 49,
+      "order": 52,
       "importance": "P1",
       "importanceLabel": "P1 高频",
+      "importanceLocked": false
+    },
+    {
+      "id": "compony/duandian/1.md::redux 和 mobx 的区别",
+      "title": "redux 和 mobx 的区别",
+      "category": "compony/duandian",
+      "source": "compony",
+      "path": "compony/duandian/1.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 53,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
       "importanceLocked": false
     },
     {
@@ -1167,7 +1256,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 50,
+      "order": 54,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1189,7 +1278,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 51,
+      "order": 55,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1211,9 +1300,31 @@
         "r5": null,
         "r6": null
       },
-      "order": 52,
+      "order": 56,
       "importance": "P1",
       "importanceLabel": "P1 高频",
+      "importanceLocked": false
+    },
+    {
+      "id": "compony/duandian/1.md::useState useEffect如何和Class写法相对应",
+      "title": "useState useEffect如何和Class写法相对应",
+      "category": "compony/duandian",
+      "source": "compony",
+      "path": "compony/duandian/1.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 57,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
       "importanceLocked": false
     },
     {
@@ -1233,7 +1344,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 53,
+      "order": 58,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1255,7 +1366,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 54,
+      "order": 59,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1277,7 +1388,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 55,
+      "order": 60,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1299,7 +1410,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 56,
+      "order": 61,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1321,7 +1432,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 57,
+      "order": 62,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -1343,7 +1454,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 58,
+      "order": 63,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -1365,7 +1476,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 59,
+      "order": 64,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1387,7 +1498,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 60,
+      "order": 65,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1409,7 +1520,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 61,
+      "order": 66,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1431,7 +1542,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 62,
+      "order": 67,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1453,7 +1564,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 63,
+      "order": 68,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1475,7 +1586,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 64,
+      "order": 69,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -1490,17 +1601,18 @@
       "firstLearnedAt": "2026-08-27",
       "reviews": {
         "r0": "2026-08-27",
-        "r1": null,
+        "r1": "2026-09-04",
         "r2": null,
         "r3": null,
         "r4": null,
         "r5": null,
         "r6": null
       },
-      "order": 65,
+      "order": 70,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/webpack/从零配置webpack.md",
@@ -1519,7 +1631,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 66,
+      "order": 71,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1541,7 +1653,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 67,
+      "order": 72,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -1563,7 +1675,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 68,
+      "order": 73,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1585,10 +1697,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 69,
+      "order": 74,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/网络/常见网络攻击方式.md",
+      "title": "常见网络攻击方式有哪些？怎么防？",
+      "category": "网络",
+      "source": "interview",
+      "path": "interview/网络/常见网络攻击方式.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 75,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/webpack/常用配置.md",
@@ -1607,7 +1741,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 70,
+      "order": 76,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -1630,7 +1764,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 71,
+      "order": 77,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -1653,9 +1787,31 @@
         "r5": null,
         "r6": null
       },
-      "order": 72,
+      "order": 78,
       "importance": "P0",
       "importanceLabel": "P0 必考",
+      "importanceLocked": false
+    },
+    {
+      "id": "interview/ts/大厂TS高级类型.md",
+      "title": "大厂TS高级类型",
+      "category": "ts",
+      "source": "interview",
+      "path": "interview/ts/大厂TS高级类型.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 79,
+      "importance": "P1",
+      "importanceLabel": "P1 高频",
       "importanceLocked": false
     },
     {
@@ -1675,7 +1831,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 73,
+      "order": 80,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1697,7 +1853,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 74,
+      "order": 81,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1719,7 +1875,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 75,
+      "order": 82,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1741,7 +1897,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 76,
+      "order": 83,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1763,7 +1919,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 77,
+      "order": 84,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,
@@ -1786,11 +1942,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 78,
+      "order": 85,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
-      "lastAttemptedAt": "2026-09-02"
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/对比题/防抖与节流.md",
@@ -1809,7 +1965,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 79,
+      "order": 86,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1831,7 +1987,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 80,
+      "order": 87,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1853,7 +2009,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 81,
+      "order": 88,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,
@@ -1876,7 +2032,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 82,
+      "order": 89,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -1898,7 +2054,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 83,
+      "order": 90,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1920,10 +2076,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 84,
+      "order": 91,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/webpack/灰度发布.md",
+      "title": "灰度环境怎么做的（50% 机制）？",
+      "category": "webpack",
+      "source": "interview",
+      "path": "interview/webpack/灰度发布.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 92,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/ts/基本类型的定义.md",
@@ -1942,7 +2120,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 85,
+      "order": 93,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -1953,6 +2131,29 @@
       "category": "webpack",
       "source": "interview",
       "path": "interview/webpack/减少包体积.md",
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-03",
+      "reviews": {
+        "r0": "2026-09-03",
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 94,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-03"
+    },
+    {
+      "id": "interview/es6/箭头函数.md",
+      "title": "箭头函数",
+      "category": "es6",
+      "source": "interview",
+      "path": "interview/es6/箭头函数.md",
       "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
@@ -1964,32 +2165,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 86,
-      "importance": "P0",
-      "importanceLabel": "P0 必考",
-      "importanceLocked": false
-    },
-    {
-      "id": "interview/es6/箭头函数.md",
-      "title": "箭头函数",
-      "category": "es6",
-      "source": "interview",
-      "path": "interview/es6/箭头函数.md",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 87,
+      "order": 95,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/handwritten/节流.md",
@@ -2008,11 +2188,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 88,
+      "order": 96,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
-      "lastAttemptedAt": "2026-09-01"
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/html/块级元素和内联元素.md",
@@ -2031,7 +2211,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 89,
+      "order": 97,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -2053,33 +2233,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 90,
+      "order": 98,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
       "lastAttemptedAt": "2026-09-03"
-    },
-    {
-      "id": "interview/对比题/路由模式区别.md",
-      "title": "路由模式区别",
-      "category": "对比题",
-      "source": "interview",
-      "path": "interview/对比题/路由模式区别.md",
-      "learned": "no",
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 91,
-      "importance": "P0",
-      "importanceLabel": "P0 必考",
-      "importanceLocked": false
     },
     {
       "id": "interview/js/轮播图动画.md",
@@ -2098,7 +2256,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 92,
+      "order": 99,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,
@@ -2121,7 +2279,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 93,
+      "order": 100,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2143,7 +2301,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 94,
+      "order": 101,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2165,7 +2323,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 95,
+      "order": 102,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2187,7 +2345,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 96,
+      "order": 103,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2209,7 +2367,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 97,
+      "order": 104,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2231,7 +2389,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 98,
+      "order": 105,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2253,7 +2411,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 99,
+      "order": 106,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2275,7 +2433,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 100,
+      "order": 107,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2297,10 +2455,33 @@
         "r5": null,
         "r6": null
       },
-      "order": 101,
+      "order": 108,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/浏览器/弱网下首屏怎么做.md",
+      "title": "弱网下首屏怎么做",
+      "category": "浏览器",
+      "source": "interview",
+      "path": "interview/浏览器/弱网下首屏怎么做.md",
+      "learned": "no",
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 109,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/css/三栏布局.md",
@@ -2319,7 +2500,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 102,
+      "order": 110,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -2341,7 +2522,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 103,
+      "order": 111,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -2364,7 +2545,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 104,
+      "order": 112,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2386,7 +2567,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 105,
+      "order": 113,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2408,7 +2589,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 106,
+      "order": 114,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2430,7 +2611,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 107,
+      "order": 115,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -2452,7 +2633,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 108,
+      "order": 116,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2474,7 +2655,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 109,
+      "order": 117,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -2496,7 +2677,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 110,
+      "order": 118,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2518,7 +2699,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 111,
+      "order": 119,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2540,7 +2721,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 112,
+      "order": 120,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2562,7 +2743,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 113,
+      "order": 121,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -2574,10 +2755,10 @@
       "category": "微前端",
       "source": "interview",
       "path": "interview/微前端/模块联邦.md",
-      "learned": "no",
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-03",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-03",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -2585,11 +2766,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 114,
+      "order": 122,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
-      "lastAttemptedAt": "2026-09-02"
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/node/什么是洋葱模型.md",
@@ -2601,18 +2782,18 @@
       "firstLearnedAt": "2026-09-02",
       "reviews": {
         "r0": "2026-09-02",
-        "r1": null,
+        "r1": "2026-09-04",
         "r2": null,
         "r3": null,
         "r4": null,
         "r5": null,
         "r6": null
       },
-      "order": 115,
+      "order": 123,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
-      "lastAttemptedAt": "2026-09-02"
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/node/什么是中间件.md",
@@ -2620,10 +2801,10 @@
       "category": "node",
       "source": "interview",
       "path": "interview/node/什么是中间件.md",
-      "learned": "no",
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-03",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-03",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -2631,10 +2812,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 116,
+      "order": 124,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/agent/python/生成器与迭代器.md",
@@ -2653,7 +2835,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 117,
+      "order": 125,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -2675,7 +2857,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 118,
+      "order": 126,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2697,7 +2879,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 119,
+      "order": 127,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -2720,7 +2902,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 120,
+      "order": 128,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2742,7 +2924,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 121,
+      "order": 129,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2753,7 +2935,7 @@
       "category": "handwritten",
       "source": "interview",
       "path": "interview/handwritten/手写ajax.md",
-      "learned": null,
+      "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -2764,10 +2946,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 122,
+      "order": 130,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/react/受控组件和非受控组件.md",
@@ -2786,7 +2969,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 123,
+      "order": 131,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2808,7 +2991,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 124,
+      "order": 132,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2830,7 +3013,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 125,
+      "order": 133,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2852,7 +3035,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 126,
+      "order": 134,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2874,7 +3057,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 127,
+      "order": 135,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2896,7 +3079,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 128,
+      "order": 136,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -2907,10 +3090,10 @@
       "category": "微前端",
       "source": "interview",
       "path": "interview/微前端/微前端的沙箱隔离机制.md",
-      "learned": null,
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-04",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-04",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -2918,10 +3101,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 129,
+      "order": 137,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/css/伪类和伪元素.md",
@@ -2940,7 +3124,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 130,
+      "order": 138,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -2962,7 +3146,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 131,
+      "order": 139,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -2984,7 +3168,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 132,
+      "order": 140,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -3007,10 +3191,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 133,
+      "order": 141,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
+    },
+    {
+      "id": "interview/webpack/为什么要有lock.md",
+      "title": "为什么要有 lock 文件？",
+      "category": "webpack",
+      "source": "interview",
+      "path": "interview/webpack/为什么要有lock.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 142,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/vue3/为什么语法糖性能更好.md",
@@ -3029,7 +3235,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 134,
+      "order": 143,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3051,7 +3257,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 135,
+      "order": 144,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -3073,7 +3279,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 136,
+      "order": 145,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3095,7 +3301,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 137,
+      "order": 146,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3117,7 +3323,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 138,
+      "order": 147,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3139,7 +3345,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 139,
+      "order": 148,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3161,7 +3367,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 140,
+      "order": 149,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3183,7 +3389,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 141,
+      "order": 150,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3205,7 +3411,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 142,
+      "order": 151,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3227,7 +3433,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 143,
+      "order": 152,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3249,7 +3455,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 144,
+      "order": 153,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3271,7 +3477,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 145,
+      "order": 154,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -3293,7 +3499,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 146,
+      "order": 155,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3315,7 +3521,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 147,
+      "order": 156,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3337,7 +3543,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 148,
+      "order": 157,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3359,7 +3565,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 149,
+      "order": 158,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -3382,7 +3588,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 150,
+      "order": 159,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3404,7 +3610,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 151,
+      "order": 160,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3426,7 +3632,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 152,
+      "order": 161,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3448,7 +3654,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 153,
+      "order": 162,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3470,7 +3676,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 154,
+      "order": 163,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3492,7 +3698,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 155,
+      "order": 164,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3514,7 +3720,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 156,
+      "order": 165,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3536,7 +3742,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 157,
+      "order": 166,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3547,10 +3753,10 @@
       "category": "vue",
       "source": "interview",
       "path": "interview/vue/beforeDestroy.md",
-      "learned": "no",
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-04",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-04",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -3558,10 +3764,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 158,
+      "order": 167,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/css/bfc.md",
@@ -3580,7 +3787,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 159,
+      "order": 168,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3602,7 +3809,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 160,
+      "order": 169,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3624,7 +3831,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 161,
+      "order": 170,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3646,7 +3853,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 162,
+      "order": 171,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3668,7 +3875,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 163,
+      "order": 172,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3690,7 +3897,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 164,
+      "order": 173,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3712,7 +3919,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 165,
+      "order": 174,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3734,7 +3941,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 166,
+      "order": 175,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3756,10 +3963,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 167,
+      "order": 176,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/js/浮点数精度.md",
+      "title": "decimal / 浮点数精度原理（为什么 0.1+0.2 !== 0.3）",
+      "category": "js",
+      "source": "interview",
+      "path": "interview/js/浮点数精度.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 177,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/html/doctype.md",
@@ -3778,7 +4007,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 168,
+      "order": 178,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -3800,7 +4029,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 169,
+      "order": 179,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3816,16 +4045,17 @@
       "reviews": {
         "r0": "2026-08-26",
         "r1": "2026-08-26",
-        "r2": null,
+        "r2": "2026-09-05",
         "r3": null,
         "r4": null,
         "r5": null,
         "r6": null
       },
-      "order": 170,
+      "order": 180,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-05"
     },
     {
       "id": "interview/handwritten/eventEmitter.md",
@@ -3844,7 +4074,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 171,
+      "order": 181,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3866,7 +4096,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 172,
+      "order": 182,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -3888,7 +4118,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 173,
+      "order": 183,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -3910,10 +4140,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 174,
+      "order": 184,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/对比题/路由模式区别.md",
+      "title": "Hash 和 History 路由模式有什么区别？",
+      "category": "对比题",
+      "source": "interview",
+      "path": "interview/对比题/路由模式区别.md",
+      "learned": "no",
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 185,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/网络/headers.md",
@@ -3932,10 +4184,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 175,
+      "order": 186,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/vite/HMR.md",
@@ -3954,7 +4207,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 176,
+      "order": 187,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -3976,7 +4229,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 177,
+      "order": 188,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -3998,7 +4251,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 178,
+      "order": 189,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4020,7 +4273,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 179,
+      "order": 190,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4042,7 +4295,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 180,
+      "order": 191,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -4054,10 +4307,10 @@
       "category": "网络",
       "source": "interview",
       "path": "interview/网络/https加密过程.md",
-      "learned": "no",
-      "firstLearnedAt": null,
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-03",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-03",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -4065,10 +4318,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 181,
+      "order": 192,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/js/instanceof原理.md",
@@ -4087,7 +4341,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 182,
+      "order": 193,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4109,10 +4363,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 183,
+      "order": 194,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "interview/agent/langchain/Chain对比Agent.md",
@@ -4131,7 +4385,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 184,
+      "order": 195,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4153,7 +4407,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 185,
+      "order": 196,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4175,7 +4429,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 186,
+      "order": 197,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4197,7 +4451,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 187,
+      "order": 198,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -4219,7 +4473,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 188,
+      "order": 199,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4241,7 +4495,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 189,
+      "order": 200,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4263,7 +4517,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 190,
+      "order": 201,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4285,7 +4539,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 191,
+      "order": 202,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4307,7 +4561,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 192,
+      "order": 203,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4329,7 +4583,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 193,
+      "order": 204,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -4352,7 +4606,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 194,
+      "order": 205,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -4375,7 +4629,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 195,
+      "order": 206,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4397,7 +4651,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 196,
+      "order": 207,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -4419,10 +4673,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 197,
+      "order": 208,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/webpack/package.json的dev和发布模式区别.md",
+      "title": "package.json 的 dependencies 和 devDependencies 有什么区别？",
+      "category": "webpack",
+      "source": "interview",
+      "path": "interview/webpack/package.json的dev和发布模式区别.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 209,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/浏览器/performance.md",
@@ -4441,7 +4717,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 198,
+      "order": 210,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4463,7 +4739,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 199,
+      "order": 211,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4485,7 +4761,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 200,
+      "order": 212,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4507,10 +4783,12 @@
         "r5": null,
         "r6": null
       },
-      "order": 201,
+      "order": 213,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "retired": true,
+      "retiredAt": "2026-09-04"
     },
     {
       "id": "interview/react/pureComponent和memo.md",
@@ -4529,7 +4807,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 202,
+      "order": 214,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4551,7 +4829,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 203,
+      "order": 215,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -4573,7 +4851,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 204,
+      "order": 216,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -4584,7 +4862,7 @@
       "category": "react",
       "source": "interview",
       "path": "interview/react/react18更新了什么.md",
-      "learned": null,
+      "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -4595,10 +4873,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 205,
+      "order": 217,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/react/react原理.md",
@@ -4606,7 +4885,7 @@
       "category": "react",
       "source": "interview",
       "path": "interview/react/react原理.md",
-      "learned": null,
+      "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -4617,10 +4896,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 206,
+      "order": 218,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/浏览器/ready和onload的区别.md",
@@ -4639,7 +4919,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 207,
+      "order": 219,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -4661,7 +4941,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 208,
+      "order": 220,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
@@ -4684,7 +4964,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 209,
+      "order": 221,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -4706,10 +4986,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 210,
+      "order": 222,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false,
+      "importanceLocked": true,
       "lastAttemptedAt": "2026-08-31"
     },
     {
@@ -4729,7 +5009,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 211,
+      "order": 223,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4751,10 +5031,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 212,
+      "order": 224,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/react/ssr请求时机.md",
+      "title": "SSR 项目请求时机是什么？数据该在哪一层拉？",
+      "category": "react",
+      "source": "interview",
+      "path": "interview/react/ssr请求时机.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 225,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/handwritten/style-loader.md",
@@ -4773,7 +5075,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 213,
+      "order": 226,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -4795,7 +5097,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 214,
+      "order": 227,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4817,7 +5119,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 215,
+      "order": 228,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -4839,10 +5141,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 216,
+      "order": 229,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/对比题/ts和java的类的区别.md",
@@ -4850,7 +5153,7 @@
       "category": "对比题",
       "source": "interview",
       "path": "interview/对比题/ts和java的类的区别.md",
-      "learned": null,
+      "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -4861,10 +5164,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 217,
+      "order": 230,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/ts/ts有啥好处.md",
@@ -4883,11 +5187,33 @@
         "r5": null,
         "r6": null
       },
-      "order": 218,
+      "order": 231,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,
       "lastAttemptedAt": "2026-09-02"
+    },
+    {
+      "id": "interview/ts/type和enum区别.md",
+      "title": "type 和 enum 有什么区别？",
+      "category": "ts",
+      "source": "interview",
+      "path": "interview/ts/type和enum区别.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 232,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/对比题/undown和any.md",
@@ -4906,10 +5232,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 219,
+      "order": 233,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
+    },
+    {
+      "id": "interview/对比题/uniapp小程序和h5兼容.md",
+      "title": "uniapp 遇到小程序和 H5 兼容问题怎么解决？",
+      "category": "对比题",
+      "source": "interview",
+      "path": "interview/对比题/uniapp小程序和h5兼容.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 234,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/网络/url过程/url输入到页面展示的过程.md",
@@ -4928,7 +5276,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 220,
+      "order": 235,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -4950,11 +5298,55 @@
         "r5": null,
         "r6": null
       },
-      "order": 221,
+      "order": 236,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false,
+      "importanceLocked": true,
       "lastAttemptedAt": "2026-09-02"
+    },
+    {
+      "id": "interview/对比题/useMemo和React.memo.md",
+      "title": "useMemo 和 React.memo 有什么区别？",
+      "category": "对比题",
+      "source": "interview",
+      "path": "interview/对比题/useMemo和React.memo.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 237,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
+    },
+    {
+      "id": "interview/对比题/useMemo和useCallback.md",
+      "title": "useMemo 和 useCallback 有什么区别？",
+      "category": "对比题",
+      "source": "interview",
+      "path": "interview/对比题/useMemo和useCallback.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 238,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "interview/css/viewpost.md",
@@ -4973,7 +5365,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 222,
+      "order": 239,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -4990,16 +5382,16 @@
         "r0": "2026-08-26",
         "r1": "2026-08-26",
         "r2": "2026-08-31",
-        "r3": null,
+        "r3": "2026-09-03",
         "r4": null,
         "r5": null,
         "r6": null
       },
-      "order": 223,
+      "order": 240,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
-      "lastAttemptedAt": "2026-08-31"
+      "lastAttemptedAt": "2026-09-03"
     },
     {
       "id": "interview/vue/Vue 2 响应式原理.md",
@@ -5018,18 +5410,19 @@
         "r5": null,
         "r6": null
       },
-      "order": 224,
+      "order": 241,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-03"
     },
     {
-      "id": "interview/对比题/vue2和vue3的区别.md",
-      "title": "vue2和vue3的区别",
+      "id": "interview/对比题/vue和react区别.md",
+      "title": "Vue 和 React 有什么区别？",
       "category": "对比题",
       "source": "interview",
-      "path": "interview/对比题/vue2和vue3的区别.md",
-      "learned": "no",
+      "path": "interview/对比题/vue和react区别.md",
+      "learned": null,
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -5040,7 +5433,74 @@
         "r5": null,
         "r6": null
       },
-      "order": 225,
+      "order": 242,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
+    },
+    {
+      "id": "interview/vue/vue2数组响应式.md",
+      "title": "Vue2 的数组在 Object.defineProperty 之外怎么做响应式？",
+      "category": "vue",
+      "source": "interview",
+      "path": "interview/vue/vue2数组响应式.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 243,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
+    },
+    {
+      "id": "interview/对比题/vue2和vue3的区别.md",
+      "title": "vue2和vue3的区别",
+      "category": "对比题",
+      "source": "interview",
+      "path": "interview/对比题/vue2和vue3的区别.md",
+      "learned": "yes",
+      "firstLearnedAt": "2026-09-03",
+      "reviews": {
+        "r0": "2026-09-03",
+        "r1": "2026-09-04",
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 244,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true,
+      "lastAttemptedAt": "2026-09-04"
+    },
+    {
+      "id": "interview/vue3/vue3新特性.md",
+      "title": "vue3新特性",
+      "category": "vue3",
+      "source": "interview",
+      "path": "interview/vue3/vue3新特性.md",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 245,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5062,7 +5522,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 226,
+      "order": 246,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5084,7 +5544,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 227,
+      "order": 247,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5106,7 +5566,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 228,
+      "order": 248,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5117,7 +5577,7 @@
       "category": "对比题",
       "source": "interview",
       "path": "interview/对比题/vuex和redux区别.md",
-      "learned": null,
+      "learned": "no",
       "firstLearnedAt": null,
       "reviews": {
         "r0": null,
@@ -5128,10 +5588,11 @@
         "r5": null,
         "r6": null
       },
-      "order": 229,
+      "order": 249,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": false,
+      "lastAttemptedAt": "2026-09-04"
     },
     {
       "id": "interview/webpack/webpack5新特性.md",
@@ -5150,7 +5611,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 230,
+      "order": 250,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5172,119 +5633,9 @@
         "r5": null,
         "r6": null
       },
-      "order": 231,
+      "order": 251,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::- 工作与技术栈背景 兰为鹏拥有 6 年前端开发经验，覆盖 B 端、C 端业务，技术栈包含 Vue、React、Node",
-      "title": "- 工作与技术栈背景: 兰为鹏拥有 6 年前端开发经验，覆盖 B 端、C 端业务，技术栈包含 Vue、React、Node，可使用 AI 工具及自定义 skil",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 232,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::- 回答表现提示 面试官指出其回答问题时信息零散、连贯性不足，要求后续回答注意表述逻辑，同时将从事件循环机制方向做进一步",
-      "title": "- 回答表现提示: 面试官指出其回答问题时信息零散、连贯性不足，要求后续回答注意表述逻辑，同时将从事件循环机制方向做进一步细致询问",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 233,
-      "importance": "P0",
-      "importanceLabel": "P0 必考",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::- 事件循环相关认知 面试者可表述浏览器事件循环的基本流程，包含同步代码执行、宏任务与微任务队列的处理逻辑，但对微任务持",
-      "title": "- 事件循环相关认知: 面试者可表述浏览器事件循环的基本流程，包含同步代码执行、宏任务与微任务队列的处理逻辑，但对微任务持续产生新微任务的页面影响判断有误，经面",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 234,
-      "importance": "P0",
-      "importanceLabel": "P0 必考",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::- 现场编程考察要求 面试官要求手写 Vue 文件实现后端管理平台的模糊搜索输入框与数据展示表格功能，重点考察编程习惯、",
-      "title": "- 现场编程考察要求: 面试官要求手写 Vue 文件实现后端管理平台的模糊搜索输入框与数据展示表格功能，重点考察编程习惯、命名规则、逻辑处理能力，明确要求不得使",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 235,
-      "importance": "P3",
-      "importanceLabel": "P3 冷门",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::- Vue 版本使用情况 同时使用过 Vue2 与 Vue3，参与过项目的新老版本迭代与重构，仅完整看过 Vue2 的原",
-      "title": "- Vue 版本使用情况: 同时使用过 Vue2 与 Vue3，参与过项目的新老版本迭代与重构，仅完整看过 Vue2 的原理，仅了解 Vue3 的大致流程",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 236,
-      "importance": "P0",
-      "importanceLabel": "P0 必考",
       "importanceLocked": false
     },
     {
@@ -5304,7 +5655,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 237,
+      "order": 252,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5326,17 +5677,17 @@
         "r5": null,
         "r6": null
       },
-      "order": 238,
+      "order": 253,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
     },
     {
-      "id": "nowcoder/921789213626880000::灰度环境怎么做的（50% 机制）",
-      "title": "灰度环境怎么做的（50% 机制）",
+      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::灰度怎么透传",
+      "title": "灰度怎么透传",
       "category": "nowcoder",
       "source": "牛客网面经",
-      "path": "nowcoder/921789213626880000",
+      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
       "learned": null,
       "firstLearnedAt": null,
       "reviews": {
@@ -5348,10 +5699,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 239,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "order": 254,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/353158379306688512::继承几种方案",
@@ -5370,7 +5721,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 240,
+      "order": 255,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5392,7 +5743,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 241,
+      "order": 256,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5414,7 +5765,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 242,
+      "order": 257,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5436,7 +5787,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 243,
+      "order": 258,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5458,7 +5809,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 244,
+      "order": 259,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5480,7 +5831,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 245,
+      "order": 260,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5502,7 +5853,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 246,
+      "order": 261,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5524,7 +5875,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 247,
+      "order": 262,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5546,7 +5897,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 248,
+      "order": 263,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5568,7 +5919,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 249,
+      "order": 264,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5590,7 +5941,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 250,
+      "order": 265,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5612,31 +5963,9 @@
         "r5": null,
         "r6": null
       },
-      "order": 251,
+      "order": 266,
       "importance": "P1",
       "importanceLabel": "P1 高频",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/878967398047498240::为什么要有lock",
-      "title": "为什么要有lock",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/878967398047498240",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 252,
-      "importance": "P2",
-      "importanceLabel": "P2 了解",
       "importanceLocked": false
     },
     {
@@ -5656,7 +5985,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 253,
+      "order": 267,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5678,7 +6007,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 254,
+      "order": 268,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5700,7 +6029,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 255,
+      "order": 269,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5722,10 +6051,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 256,
+      "order": 270,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/6773906fed2840f39838871efccaad74::渲染流程？",
@@ -5744,7 +6073,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 257,
+      "order": 271,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5766,7 +6095,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 258,
+      "order": 272,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -5788,7 +6117,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 259,
+      "order": 273,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5810,7 +6139,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 260,
+      "order": 274,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5832,9 +6161,31 @@
         "r5": null,
         "r6": null
       },
-      "order": 261,
+      "order": 275,
       "importance": "P2",
       "importanceLabel": "P2 了解",
+      "importanceLocked": false
+    },
+    {
+      "id": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c::最近整理一个企业小程序项目时，遇到一个很典型的问题。页面刚打开时很顺。列表只有几十条数据时也没有明显异常。但随着用户不断",
+      "title": "最近整理一个企业小程序项目时，遇到一个很典型的问题。页面刚打开时很顺。列表只有几十条数据时也没有明显异常。但随着用户不断下拉，页面开始出现轻微卡顿；继续滚动以后",
+      "category": "nowcoder",
+      "source": "牛客网面经",
+      "path": "nowcoder/a447cfca2bea4f05b5bf01f45ead343c",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 276,
+      "importance": "P1",
+      "importanceLabel": "P1 高频",
       "importanceLocked": false
     },
     {
@@ -5854,7 +6205,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 262,
+      "order": 277,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5876,7 +6227,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 263,
+      "order": 278,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5898,10 +6249,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 264,
-      "importance": "P2",
-      "importanceLabel": "P2 了解",
-      "importanceLocked": false
+      "order": 279,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/554325015013896192::es和cmd的区别",
@@ -5920,7 +6271,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 265,
+      "order": 280,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -5942,10 +6293,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 266,
+      "order": 281,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/878967398047498240::interface跟type区别",
@@ -5964,10 +6315,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 267,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "order": 282,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/918816229538693120::nexttick原理",
@@ -5986,7 +6337,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 268,
+      "order": 283,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6008,10 +6359,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 269,
-      "importance": "P2",
-      "importanceLabel": "P2 了解",
-      "importanceLocked": false
+      "order": 284,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/921789213626880000::qiankun的沙箱机制怎么做的，怎么通信的（原理）",
@@ -6030,7 +6381,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 270,
+      "order": 285,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -6052,10 +6403,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 271,
+      "order": 286,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/554325015013896192::react16以后fiber架构流程",
@@ -6074,7 +6425,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 272,
+      "order": 287,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6096,10 +6447,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 273,
+      "order": 288,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/353158379306688512::react生命周期",
@@ -6118,7 +6469,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 274,
+      "order": 289,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6140,7 +6491,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 275,
+      "order": 290,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -6162,31 +6513,9 @@
         "r5": null,
         "r6": null
       },
-      "order": 276,
+      "order": 291,
       "importance": "P2",
       "importanceLabel": "P2 了解",
-      "importanceLocked": false
-    },
-    {
-      "id": "nowcoder/921789213626880000::ssr项目请求时机",
-      "title": "ssr项目请求时机",
-      "category": "nowcoder",
-      "source": "牛客网面经",
-      "path": "nowcoder/921789213626880000",
-      "learned": null,
-      "firstLearnedAt": null,
-      "reviews": {
-        "r0": null,
-        "r1": null,
-        "r2": null,
-        "r3": null,
-        "r4": null,
-        "r5": null,
-        "r6": null
-      },
-      "order": 277,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
       "importanceLocked": false
     },
     {
@@ -6206,7 +6535,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 278,
+      "order": 292,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -6228,10 +6557,54 @@
         "r5": null,
         "r6": null
       },
-      "order": 279,
-      "importance": "P2",
-      "importanceLabel": "P2 了解",
-      "importanceLocked": false
+      "order": 293,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
+    },
+    {
+      "id": "nowcoder/921789213626880000::uniapp遇到小程序跟h5兼容问题怎么解决",
+      "title": "uniapp遇到小程序跟h5兼容问题怎么解决",
+      "category": "nowcoder",
+      "source": "牛客网面经",
+      "path": "nowcoder/921789213626880000",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 294,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
+    },
+    {
+      "id": "nowcoder/554325015013896192::useCallback接受的数组，如果是object，属性改变，那会不会改变",
+      "title": "useCallback接受的数组，如果是object，属性改变，那会不会改变",
+      "category": "nowcoder",
+      "source": "牛客网面经",
+      "path": "nowcoder/554325015013896192",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 295,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/918816229538693120::useEffect跟useLayoutEffect区别",
@@ -6250,10 +6623,32 @@
         "r5": null,
         "r6": null
       },
-      "order": 280,
+      "order": 296,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
+    },
+    {
+      "id": "nowcoder/918816229538693120::useMemo跟useCallback",
+      "title": "useMemo跟useCallback",
+      "category": "nowcoder",
+      "source": "牛客网面经",
+      "path": "nowcoder/918816229538693120",
+      "learned": null,
+      "firstLearnedAt": null,
+      "reviews": {
+        "r0": null,
+        "r1": null,
+        "r2": null,
+        "r3": null,
+        "r4": null,
+        "r5": null,
+        "r6": null
+      },
+      "order": 297,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/918816229538693120::useMomo跟React.memo",
@@ -6272,10 +6667,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 281,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "order": 298,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/6773906fed2840f39838871efccaad74::var let const区别",
@@ -6294,7 +6689,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 282,
+      "order": 299,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6316,7 +6711,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 283,
+      "order": 300,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6338,10 +6733,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 284,
+      "order": 301,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/918816229538693120::vue2的数组额外（object.defineproperty之外）怎么做的",
@@ -6360,10 +6755,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 285,
-      "importance": "P1",
-      "importanceLabel": "P1 高频",
-      "importanceLocked": false
+      "order": 302,
+      "importance": "P0",
+      "importanceLabel": "P0 必考",
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/918816229538693120::vue2跟vue3区别",
@@ -6382,10 +6777,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 286,
+      "order": 303,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/921789213626880000::vue跟react的渲染机制",
@@ -6404,10 +6799,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 287,
+      "order": 304,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "nowcoder/353158379306688512::vue用了什么设计模式",
@@ -6426,7 +6821,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 288,
+      "order": 305,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -6448,7 +6843,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 289,
+      "order": 306,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6470,7 +6865,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 290,
+      "order": 307,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6492,7 +6887,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 291,
+      "order": 308,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6514,7 +6909,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 292,
+      "order": 309,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6536,7 +6931,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 293,
+      "order": 310,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6558,7 +6953,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 294,
+      "order": 311,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6580,7 +6975,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 295,
+      "order": 312,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6602,7 +6997,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 296,
+      "order": 313,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6624,7 +7019,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 297,
+      "order": 314,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6646,7 +7041,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 298,
+      "order": 315,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6668,7 +7063,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 299,
+      "order": 316,
       "importance": "P3",
       "importanceLabel": "P3 冷门",
       "importanceLocked": false
@@ -6690,7 +7085,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 300,
+      "order": 317,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6712,7 +7107,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 301,
+      "order": 318,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6734,7 +7129,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 302,
+      "order": 319,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false
@@ -6756,7 +7151,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 303,
+      "order": 320,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6778,7 +7173,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 304,
+      "order": 321,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6800,7 +7195,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 305,
+      "order": 322,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6822,7 +7217,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 306,
+      "order": 323,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6844,7 +7239,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 307,
+      "order": 324,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6866,7 +7261,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 308,
+      "order": 325,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6888,7 +7283,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 309,
+      "order": 326,
       "importance": "P2",
       "importanceLabel": "P2 了解",
       "importanceLocked": false
@@ -6910,7 +7305,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 310,
+      "order": 327,
       "importance": "P0",
       "importanceLabel": "P0 必考",
       "importanceLocked": false
@@ -6932,10 +7327,10 @@
         "r5": null,
         "r6": null
       },
-      "order": 311,
+      "order": 328,
       "importance": "P0",
       "importanceLabel": "P0 必考",
-      "importanceLocked": false
+      "importanceLocked": true
     },
     {
       "id": "interview/阅读代码题/异步.js",
@@ -6954,7 +7349,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 312,
+      "order": 329,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,
@@ -6978,7 +7373,7 @@
         "r5": null,
         "r6": null
       },
-      "order": 313,
+      "order": 330,
       "importance": "P1",
       "importanceLabel": "P1 高频",
       "importanceLocked": false,

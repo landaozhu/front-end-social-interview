@@ -21,7 +21,7 @@ Vue 3 新增了 Teleport（将组件渲染到指定DOM）、Fragment（支持多
 ##  兼容性
 vue3放弃了ie11，因为proxy无法被polify或者被babel编译，新的浏览器才有实现
 ### 追问
-#### 为什么 Proxy 无法被 Polyfill？
+1. 为什么 Proxy 无法被 Polyfill？
 
 这是最常见的。
 
@@ -32,7 +32,7 @@ Polyfill 本质是在 JavaScript 层补充缺失 API，例如 Promise、Map 等�
 但 Proxy 属于引擎级能力，访问属性时浏览器会主动触发 get、set 等 trap。
 
 如果浏览器本身不支持 Proxy，那么读取 obj.name 时根本不会进入代理逻辑，因此无法通过普通 JavaScript 代码模拟
-#### 为什么proxy不能被babel编译
+2. 为什么proxy不能被babel编译
 new Proxy(target, handler)
 
 不是语法。
@@ -40,4 +40,7 @@ new Proxy(target, handler)
 它是：
 
 运行时对象(Runtime API)
-#### Proxy 比 defineProperty 好在哪里？
+3. Proxy 比 defineProperty 好在哪里？
+
+4. Vue 2 为什么「对象上新加一个字段」检测不到？Vue.set 具体补了哪两步？
+5. const state = reactive({ a: { b: 1 } }) 执行完这一行时，a 已经被包成 Proxy 了吗？第一次读 state.a.b 时发生了什么？

@@ -1,4 +1,10 @@
-proxy 底层是通过 Object.defineProperpty 实现的
+# 手写简易 Proxy（不再提问）
+
+**2026-09-04 从一面抽题剔除。** 真 `Proxy` 是引擎 trap，**不是** `Object.defineProperty` 实现的，也 polyfill 不了（Vue 3 放弃 IE 就是这个原因）。用 `defineProperty` 仿一个 `MyProxy` 会把面试口径讲反，不要再练这题。
+
+下面旧稿仅归档，不要背「底层是 defineProperty」。
+
+---
 
 先来实现最基本的功能
 

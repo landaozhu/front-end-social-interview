@@ -9,7 +9,7 @@ const HR_META_RE =
   /^(自我介绍|作者：|链接：|来源：|很久以前|失败原因|感谢面试官|口头offer|考不考研|有没有女朋友|还有什么在流程|实习的情况|想问什么|唠嗑|插曲|表现贼差|希望能过|我爱腾讯|感谢腾讯|一面的情况|分享屏幕|专业及主修|编译原理|操作系统|我怀疑我进错了|平时怎么学习|有没有加入什么社团|三个词形容|近几年职业规划|你有啥职业|兴趣爱好|没做出来|讲了个大概|附加题|没答上来|有点忘了|当初面的时候|结果等了一个星期|心态已经|随便说了个答案|职业规划|见本博客)/;
 
 const FE_TOPIC_RE =
-  /vue|react|webpack|vite|css|html|http|https|tcp|udp|dns|跨域|闭包|原型|event\s?loop|事件循环|浏览器|渲染|dom|flex|bfc|盒模型|position|节流|防抖|promise|async|await|hooks|生命周期|虚拟dom|diff|vuex|redux|middleware|中间件|洋葱|koa|node|npm|babel|loader|缓存|cookie|session|xss|csrf|seo|spa|ssr|typescript|语义化|重排|重绘|回流|cors|jsonp|性能优化|首屏|cdn|雪碧图|移动端|像素|rem|viewport|call|apply|bind|继承|组件通信|slot|mixin|computed|watch|nexttick|响应式|proxy|composition|fiber|setstate|useeffect|微前端|iframe|monorepo|ci\/cd|监控|埋点|nest|websocket|etag|fastclick|垂直居中|圣杯|双飞翼|懒加载|预加载|transform|less|sass|postcss|hmr|tree\s?shaking|this指向|this的|原型链/i;
+  /vue|react|webpack|vite|css|html|http|https|tcp|udp|dns|跨域|闭包|原型|event\s?loop|事件循环|浏览器|渲染|dom|flex|bfc|盒模型|position|节流|防抖|promise|async|await|hooks|生命周期|虚拟dom|diff|vuex|redux|middleware|中间件|洋葱|koa|node|npm|babel|loader|缓存|cookie|session|xss|csrf|网络攻击|seo|spa|ssr|typescript|语义化|重排|重绘|回流|cors|jsonp|性能优化|首屏|cdn|雪碧图|移动端|像素|rem|viewport|call|apply|bind|继承|组件通信|slot|mixin|computed|watch|nexttick|响应式|proxy|composition|fiber|setstate|useeffect|usememo|usecallback|微前端|iframe|monorepo|ci\/cd|监控|埋点|nest|websocket|etag|fastclick|垂直居中|圣杯|双飞翼|懒加载|预加载|transform|less|sass|postcss|hmr|tree\s?shaking|this指向|this的|原型链|uni-?app|小程序|灰度|package\.json|lockfile|decimal|enum|interface/i;
 
 const NARRATIVE_NOISE_RE =
   /以为|之后|谷歌|可能会|比较容易|详细的|参考$|一面$|WXG|失败原因|蒙圈|脱口而出|以讹传讹|Performance|encoding|预解析|构建过程|串行还是并行|其实|但其实|比较容易混淆/;
@@ -42,10 +42,16 @@ function isHrMeta(text) {
   return HR_META_RE.test(text.trim());
 }
 
+/** 中英混写的对比题（useMemo跟useCallback）不要当代码 */
+function isMixedTopicTitle(text) {
+  return /[\u4e00-\u9fff]/.test(text) && /跟|和|区别|原理|怎么|为何|对比|机制|流程/.test(text);
+}
+
 /** 题干本身是代码片段，不能作为面试题 */
 function isCodeTitle(text) {
   const t = stripMarkdown(text).trim();
   if (!t) return true;
+  if (isMixedTopicTitle(t)) return false;
   if (/^[a-zA-Z_$][\w$.]*\([^)]*\)$/.test(t)) return true;
   if (/^(console\.|return\s|new\s|typeof\s|instanceof\s)/.test(t)) return true;
   const chinese = (t.match(/[\u4e00-\u9fff]/g) || []).length;
@@ -55,6 +61,7 @@ function isCodeTitle(text) {
 }
 
 function isCodeLike(text) {
+  if (isMixedTopicTitle(text)) return false;
   if (CODE_LINE_RE.test(text.trim())) return true;
   if (isCodeTitle(text)) return true;
   if (/\w+\([^)]*\)/.test(text) && !/[？?]$/.test(text)) return true;

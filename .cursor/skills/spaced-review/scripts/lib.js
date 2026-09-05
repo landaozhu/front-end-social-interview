@@ -448,6 +448,15 @@ function initOrSyncData() {
     return question;
   });
 
+  const scannedIds = new Set(questions.map((q) => q.id));
+  let extraOrder = questions.length;
+  for (const prev of existing?.questions || []) {
+    if (!prev.retired || scannedIds.has(prev.id)) continue;
+    extraOrder += 1;
+    questions.push({ ...prev, order: extraOrder });
+    scannedIds.add(prev.id);
+  }
+
   const data = {
     version: 4,
     profile: RESUME_PROFILE,
@@ -763,8 +772,8 @@ R 列显示**实际日期**（如 \`2026-08-27\`），空白 = 该节点尚未�
 
 | 等级 | 含义 | 抽题权重 |
 |------|------|----------|
-| P0 必考 | Webpack、微前端、Vue3/React、性能、网络缓存、Event Loop | ×10 |
-| P1 高频 | CSS 布局、手写题、TS、Egg/Koa、SSR | ×5 |
+| P0 必考 | Webpack、微前端、Vue3/React、SSR、灰度、性能、网络缓存、Event Loop | ×10 |
+| P1 高频 | CSS 布局、手写题、TS 基础、Egg/Koa | ×5 |
 | P2 了解 | Vite 单独原理、一般考点、面经补充 | ×1.5 |
 | P3 冷门 | **CI/CD、Monorepo、NestJS、埋点**、过时考点 | ×0.25 |
 

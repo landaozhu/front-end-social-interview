@@ -51,6 +51,9 @@ const KNOWLEDGE_DOMAINS = [
 const EXTRA_KNOWLEDGE = KNOWLEDGE_COUNT - KNOWLEDGE_DOMAINS.length;
 const LEVEL_ORDER = { P0: 0, P1: 1, P2: 2, P3: 3 };
 
+/** 一面专用：未测 40%，到期 / 未学会均分剩下 60%。自我考察仍走 25k 表的 25/25/50。 */
+const MOCK_PICK_RATIOS = { due: 0.3, notLearned: 0.3, untested: 0.4 };
+
 /** 八股文排除：无独立答案文件的目录/类目 */
 const KNOWLEDGE_EXCLUDE_PATH_RE =
   /^interview\/(handwritten|阅读代码题|优化|场景题|agent)\//;
@@ -258,7 +261,7 @@ function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, min
       filterPool(knowledgePools.due, cap),
       filterPool(knowledgePools.notLearned, cap),
       filterPool(knowledgePools.untested, cap),
-      data.pickRatios,
+      MOCK_PICK_RATIOS,
     ),
     fallback,
     excludeIds,
@@ -287,7 +290,7 @@ function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomain
       knowledgePools.due.filter((d) => prefer(d.question, cap)),
       knowledgePools.notLearned.filter((d) => prefer(d.question, cap)),
       knowledgePools.untested.filter((d) => prefer(d.question, cap)),
-      data.pickRatios,
+      MOCK_PICK_RATIOS,
     ),
     fallback,
     excludeIds,
@@ -298,7 +301,7 @@ function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomain
 function pickManyFromPools(pools, data, excludeIds, count, fallbackItems) {
   const items = [];
   for (let i = 0; i < count; i += 1) {
-    let { picked, pickSource } = pickFromPools(pools, excludeIds, data.pickRatios);
+    let { picked, pickSource } = pickFromPools(pools, excludeIds, MOCK_PICK_RATIOS);
     if (!picked && fallbackItems) {
       picked = weightedPickOne(fallbackItems, excludeIds);
       pickSource = picked ? 'coverage' : null;
@@ -444,7 +447,7 @@ function pickSession(data, today = todayStr(), options = {}) {
       totalUntested: untested.length,
     },
     questions,
-    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。达标打 ✓，未达标打 ✗。三类 35%/35%/30% 混抽。不要把后续题目提前告诉候选人。',
+    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。达标打 ✓，未达标打 ✗。三类 30%/30%/40% 混抽。不要把后续题目提前告诉候选人。',
   };
 }
 
@@ -456,6 +459,7 @@ function loadReviewData() {
 
 module.exports = {
   MOCK_PROFILE,
+  MOCK_PICK_RATIOS,
   KNOWLEDGE_COUNT,
   READING_COUNT,
   HANDWRITTEN_COUNT,

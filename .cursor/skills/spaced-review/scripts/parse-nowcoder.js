@@ -15,8 +15,9 @@ const HR_RE =
   /^(自我介绍|作者：|链接：|来源：|gap|裁员|晋升|面试者基本情况|工作与技术栈背景)/;
 
 function isNowcoderNoise(line) {
-  const t = line.trim();
+  const t = line.trim().replace(/\u00a0/g, ' ');
   if (!t || t.length < 2) return true;
+  if (/^[-*•–—]\s/.test(t)) return true;
   if (NOISE_RE.test(t)) return true;
   if (HR_RE.test(t)) return true;
   if (/^被裁员|^当我想晋升|^在如此艰难|^大厂\s+阿里云/.test(t)) return true;
@@ -42,7 +43,7 @@ function parseNowcoderPostContent(postTitle, content) {
 
     const ok =
       looksLikeFrontendQuestion(title) ||
-      /区别|原理|机制|流程|优化|eventloop|event loop|fcp|ssr|hook|vue|react|webpack|微前端|沙箱|nexttick|computed|watch|middleware|缓存|跨域|闭包|原型|diff|渲染|生命周期|宏任务|微任务/i.test(
+      /区别|原理|机制|流程|优化|eventloop|event loop|fcp|ssr|hook|vue|react|webpack|微前端|沙箱|nexttick|computed|watch|middleware|缓存|跨域|闭包|原型|diff|渲染|生命周期|宏任务|微任务|uniapp|uni-app|useMemo|useCallback|网络攻击|package\.json|lock|decimal|decical|enum|interface|灰度|小程序/i.test(
         title,
       );
 

@@ -1,0 +1,73 @@
+{
+  "company": "数智化前端JD",
+  "tier": "mid-business",
+  "round": "一面",
+  "jdKeywords": [
+    "Vue",
+    "React",
+    "Taro",
+    "UniApp",
+    "性能",
+    "Webpack",
+    "Vite",
+    "TypeScript",
+    "组件化"
+  ],
+  "startedAt": "2026-09-03",
+  "asked": [
+    {
+      "title": "Vue2和Vue3核心区别（响应式）",
+      "localId": "interview/对比题/vue2和vue3的区别.md",
+      "domain": "vue",
+      "source": "local",
+      "score": 6,
+      "passed": true,
+      "askedAt": "2026-09-03"
+    },
+    {
+      "title": "React Fiber是干什么的",
+      "localId": "interview/react/react原理.md",
+      "domain": "react",
+      "source": "local",
+      "score": 4,
+      "passed": false,
+      "askedAt": "2026-09-04"
+    },
+    {
+      "title": "首屏优化优先级与弱网",
+      "localId": "compony/ali/1.md::前端性能优化",
+      "domain": "performance",
+      "source": "local",
+      "score": 6,
+      "passed": true,
+      "askedAt": "2026-09-04"
+    },
+    {
+      "title": "React Fiber是干什么的",
+      "localId": "interview/react/react原理.md",
+      "domain": "react",
+      "source": "local",
+      "score": 4,
+      "passed": false,
+      "askedAt": "2026-09-04"
+    },
+    {
+      "title": "vue2和vue3的区别",
+      "localId": "interview/对比题/vue2和vue3的区别.md",
+      "domain": "vue",
+      "source": "local",
+      "score": 6,
+      "passed": true,
+      "askedAt": "2026-09-04"
+    },
+    {
+      "title": "弱网下首屏怎么做",
+      "localId": "interview/浏览器/弱网下首屏怎么做.md",
+      "domain": "performance",
+      "source": "invented",
+      "score": 4,
+      "passed": false,
+      "askedAt": "2026-09-04"
+    }
+  ]
+}
