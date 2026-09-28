@@ -4,7 +4,7 @@
 
 | Skill | 用处 | 触发提示词 | 对应目录 |
 |-------|------|------------|----------|
-| mock-interview | 一面模拟整场：13 母题（10 八股覆盖工程化/Vue/React/Node/网络/TS/原理/微前端 + 1 阅读 + 2 手写），含追问纠正打分。抽题 80% 已通过 ✓ · 20% 未通过 ✗。 | 模拟面试、一面模拟、面试考我、mock interview | `.cursor/skills/mock-interview/`（八股来自 `25k考察列表`，阅读 `interview/阅读代码题/`，手写 `interview/handwritten/`） |
+| mock-interview | 一面模拟整场：13 母题（10 八股覆盖工程化/Vue/React/Node/网络/TS/原理/微前端 + 1 阅读 + 2 手写），含追问纠正打分。抽题 80% 已通过 ✓ · 20% 未通过 ✗。需要自己在data/25k考察列表.md重置勾选，在本地进行使用 | 模拟面试、一面模拟、面试考我、mock interview | `.cursor/skills/mock-interview/`（八股来自 `25k考察列表`，阅读 `interview/阅读代码题/`，手写 `interview/handwritten/`） |
 | second-round | 二面模拟：默认一场 = 项目深挖 + 1 道 JS 手写 + 1 道中等算法。技术总监/P7/P8 视角连环追问并打分。达标打 ✓，未达标打 ✗。 | 二面、二面模拟、项目深挖、二面面试、second round | `.cursor/skills/second-round/`（材料 `二面面试题/`） |
 | spaced-review | 基于遗忘曲线的面试题自我考察。抽题三类混抽：到期 25% · ✗ 未学会 25% · 未测 50%。达标打 ✓，未达标打 ✗。 | 自我考察、随机提问、复习面试题 | `.cursor/skills/spaced-review/`（读取并写回 `data/25k考察列表.json`） |
 | tutor-one | 辅导一道题：用户自己出题、自己先回答；按 25k 一面追问到能口述过关。说得不到位就讲细，直到能开口。辅导过程不写入 25k 考察列表。 | 辅导、辅导一道、教会我、这题辅导、我出题、讲会、帮我搞懂 | `.cursor/skills/tutor-one/`（备课可读 `interview/`） |
