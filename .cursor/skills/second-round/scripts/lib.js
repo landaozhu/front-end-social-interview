@@ -108,6 +108,8 @@ const QUESTION_META = {
   '39-微前端踩坑': { cluster: 'order', importance: 'P1', must: false },
   '40-你怎么做技术方案设计': { cluster: 'framework', importance: 'P0', must: true },
   '41-uni-app兼容题-维护向怎么答': { cluster: 'seat', importance: 'P0', must: true },
+  '42-Vue和React怎么选型': { cluster: 'framework', importance: 'P0', must: true },
+  '43-输入去xx酒店出现酒店': { cluster: 'ctrip', importance: 'P0', must: true },
 };
 
 /**

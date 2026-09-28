@@ -2,7 +2,7 @@
 
 25k 一面过关线：能 **顺着一条链路讲完**「`setState` → 调度 → 内存里 Diff → 一次性改 DOM」；中间能自己接上 **为什么可中断、为什么半成品不上屏、高优怎么插队**。只报「虚拟 DOM + Diff」或把 Fiber / 优先级 / 双缓冲拆开背，过不了。
 
-配套：`setState.md`、`react原理.md`（key）、`react18更新了什么.md`。本题只讲 **一次更新怎么走完**。
+配套：`setState.md`、`react原理.md`（key）、`react18更新了什么.md`、[React架构演进](./React架构演进.md)。本题只讲 **一次更新怎么走完**。
 
 ---
 

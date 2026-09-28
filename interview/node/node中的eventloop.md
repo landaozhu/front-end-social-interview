@@ -55,6 +55,7 @@ close callbacks 阶段执行 close 事件
 
 并且在 Node 中，有些情况下的定时器执行顺序是随机的
 
+```javascript
 setTimeout(() => {
     console.log('setTimeout');
 }, 0);
@@ -65,8 +66,11 @@ setImmediate(() => {
 // 可能也会相反的输出，这取决于性能
 // 因为可能进入 event loop 用了不到 1 毫秒，这时候会执行 setImmediate
 // 否则会执行 setTimeout
+```
+
 当然在这种情况下，执行顺序是相同的
 
+```javascript
 var fs = require('fs')
 
 fs.readFile(__filename, () => {
@@ -81,6 +85,7 @@ fs.readFile(__filename, () => {
 // 发现有 setImmediate ，所以会立即跳到 check 阶段执行回调
 // 再去 timer 阶段执行 setTimeout
 // 所以以上输出一定是 setImmediate，setTimeout
+```
 上面介绍的都是 macrotask 的执行情况，microtask 会在以上每个阶段完成后立即执行。
 
 ## 微任务
@@ -128,11 +133,11 @@ setTimeout(()=>{
         console.log('promise2')
     })
 }, 0)
-```
 // 以上代码在浏览器和 node 中打印情况是不同的
 // 浏览器中一定打印 timer1, promise1, timer2, promise2
 // node 中可能打印 timer1, timer2, promise1, promise2（v10）
 // 也可能打印 timer1, promise1, timer2, promise2（v11）
+```
 
 
 ```javascript

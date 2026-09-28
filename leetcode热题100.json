@@ -2,9 +2,9 @@
   "version": 1,
   "plan": "LeetCode 热题 100",
   "planUrl": "https://leetcode.cn/studyplan/top-100-liked/",
-  "updatedAt": "2026-09-04",
+  "updatedAt": "2026-09-28",
   "pickMode": "unlocked-only",
-  "lastPickedId": "leetcode/73-set-matrix-zeroes",
+  "lastPickedId": "leetcode/35-search-insert-position",
   "pickRatios": {
     "due": 0.4,
     "notLearned": 0,
@@ -703,7 +703,7 @@
       "learned": "yes",
       "firstLearnedAt": "2026-07-31",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-28",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -716,9 +716,7 @@
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
       "unlocked": true,
-      "forgottenAt": "2026-09-04",
-      "lapseCount": 2,
-      "lastAttemptedAt": "2026-09-04"
+      "lastAttemptedAt": "2026-09-28"
     },
     {
       "id": "leetcode/206-reverse-linked-list",
@@ -1609,7 +1607,7 @@
       "learned": "yes",
       "firstLearnedAt": "2026-07-31",
       "reviews": {
-        "r0": null,
+        "r0": "2026-09-28",
         "r1": null,
         "r2": null,
         "r3": null,
@@ -1622,9 +1620,7 @@
       "importanceLabel": "P0 必考",
       "importanceLocked": false,
       "unlocked": true,
-      "forgottenAt": "2026-09-04",
-      "lapseCount": 2,
-      "lastAttemptedAt": "2026-09-04"
+      "lastAttemptedAt": "2026-09-28"
     },
     {
       "id": "leetcode/207-course-schedule",

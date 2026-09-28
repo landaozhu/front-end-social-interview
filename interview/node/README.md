@@ -1,9 +1,7 @@
 ## 汇总
 
 - [手写 eventEmitter](../handwritten/eventEmitter/eventEmitter.md)
-- [Nodejs 适用于哪些场景？](#Nodejs 适用于哪些场景？)
-
-##
+- [Nodejs 适用于哪些场景？](#Nodejs-适用于哪些场景？)
 
 ## Nodejs 适用于哪些场景？
 
@@ -23,57 +21,68 @@ check 阶段：处理 setImmediate()的回调函数。
 close callbacks 阶段：处理一些关闭事件，例如 socket 关闭等。
 
 举个例子：
-javascript 复制代码 console.log('start');
+
+```javascript
+console.log('start');
 
 setTimeout(() => {
-console.log('timeout');
+  console.log('timeout');
 }, 1000);
 
 setImmediate(() => {
-console.log('immediate');
+  console.log('immediate');
 });
 
 console.log('end');
+```
 
 输出结果：
-bash 复制代码 start
+
+```
+start
 end
 immediate
 timeout
+```
 
 再来一个复杂的例子：
-javascript 复制代码 console.log('start');
+
+```javascript
+console.log('start');
 
 setTimeout(() => {
-console.log('timeout');  
- process.nextTick(() => {
-console.log('nextTick');  
- });
+  console.log('timeout');
+  process.nextTick(() => {
+    console.log('nextTick');
+  });
 }, 1000);
 
 setImmediate(() => {
-console.log('immediate');  
+  console.log('immediate');
 });
 
 const fs = require('fs');
-fs.readFile(\_\_filename, () => {
-console.log('readFile');  
- setImmediate(() => {
-console.log('immediate in readFile callback');
-});
-setTimeout(() => {
-console.log('timeout in readFile callback');
-}, 0);
+fs.readFile(__filename, () => {
+  console.log('readFile');
+  setImmediate(() => {
+    console.log('immediate in readFile callback');
+  });
+  setTimeout(() => {
+    console.log('timeout in readFile callback');
+  }, 0);
 });
 
 process.nextTick(() => {
-console.log('nextTick');  
+  console.log('nextTick');
 });
 
 console.log('end');
+```
 
 输出如下：
-bash 复制代码 start
+
+```
+start
 end
 nextTick
 readFile
@@ -83,6 +92,7 @@ immediate in readFile callback
 timeout in readFile callback
 timeout
 nextTick
+```
 
 分析一下整个代码在事件循环的六个阶段中的执行顺序：
 
@@ -99,59 +109,72 @@ close callbacks 阶段：没有任务执行。
    使用 EventEmitter 的好处是可以用事件的形式来处理异步任务，可以大大简化代码，并且容易处理异常。
    举个例子来看看为什么 Nodejs 里大多数模块都要继承 EventEmitter。
    这是不使用 EventEmitter 实现的文件读取，所有逻辑都放在一个回调函数里：
-   javascript 复制代码 const fs = require('fs');
+
+```javascript
+const fs = require('fs');
 
 fs.readFile('file.txt', (err, data) => {
-if (err) {
-console.error(`Failed to read file: ${err}`);
-} else {
-console.log(`File content: ${data}`);
-}
+  if (err) {
+    console.error(`Failed to read file: ${err}`);
+  } else {
+    console.log(`File content: ${data}`);
+  }
 });
+```
 
 这是使用 EventEmitter 的文件读取：
-javascript 复制代码 const fs = require('fs');
+
+```javascript
+const fs = require('fs');
 
 const stream = fs.createReadStream('file.txt');
 
 stream.on('data', (chunk) => {
-console.log(`Received ${chunk.length} bytes of data.`);
+  console.log(`Received ${chunk.length} bytes of data.`);
 });
 
 stream.on('end', () => {
-console.log('Finished reading file.');
+  console.log('Finished reading file.');
 });
+```
 
-很显然，使用 EventEmitter 之后，处理文件和处理异常的逻辑就被分开了，代码可读性和可维护性都提升了。 4. Buffer 怎么理解，有什么应用？
+很显然，使用 EventEmitter 之后，处理文件和处理异常的逻辑就被分开了，代码可读性和可维护性都提升了。
+
+4. Buffer 怎么理解，有什么应用？
 Buffer 对象是一个类似于数组的对象，它的每个元素都是一个表示 8 位字节的整数。
 可以将其看作是一个字节数组，用来存储和操作二进制数据。
 应用场景：
 
 网络通信：可以使用 Buffer.from()方法将字符串转换为二进制数据，然后使用 net 模块进行网络通信：
 
-javascript 复制代码 const net = require('net');
+```javascript
+const net = require('net');
 
 const client = net.createConnection({ port: 8080 }, () => {
-// 将字符串转换为二进制数据
-const data = Buffer.from('Hello, world!', 'utf8');
+  // 将字符串转换为二进制数据
+  const data = Buffer.from('Hello, world!', 'utf8');
 
-// 发送数据
-client.write(data);
+  // 发送数据
+  client.write(data);
 });
+```
 
 文件操作，用 Buffer 来存储文件数据：
 
-javascript 复制代码 const fs = require('fs');
+```javascript
+const fs = require('fs');
 
 // 读取文件，并将数据存储到 Buffer 对象中
 const data = fs.readFileSync('/path/to/file');
 
 // 处理数据
 // ...
+```
 
 加密解密，例如，可以使用 crypto 模块创建加密解密算法需要的二进制数据：
 
-javascript 复制代码 const crypto = require('crypto');
+```javascript
+const crypto = require('crypto');
 
 // 创建加密解密算法需要的二进制数据
 const key = Buffer.from('mysecretkey', 'utf8');
@@ -162,10 +185,12 @@ const cipher = crypto.createCipheriv('aes-256-cbc', key, iv);
 
 // 加密数据
 const encrypted = Buffer.concat([cipher.update(data), cipher.final()]);
+```
 
 图像处理：
 
-javascript 复制代码 const fs = require('fs');
+```javascript
+const fs = require('fs');
 const sharp = require('sharp');
 
 // 读取图片文件，并将数据存储到 Buffer 对象中
@@ -173,10 +198,11 @@ const data = fs.readFileSync('/path/to/image');
 
 // 处理图片
 sharp(data)
-.resize(200, 200)
-.toFile('/path/to/resized-image', (err, info) => {
-// ...
-});
+  .resize(200, 200)
+  .toFile('/path/to/resized-image', (err, info) => {
+    // ...
+  });
+```
 
 5. 什么是 I/O？
    概念：计算机里所谓的 I/O 指的是输入和输出，但对于前端同学而言，这个定义可能不太好理解。简单点说，需要等待的任务都可以称为 I/O 任务，比如前端的事件处理、网络请求、定时器，后端的文件处理、网络请求、数据库操作，这些都属于 I/O 任务。
@@ -209,24 +235,27 @@ Nestjs：基于 TS,使用了大量的装饰器语法，开发体验类似于 Jav
 
 数组里面存函数：使用 middleware 来存储中间函数。
 
-javascript 复制代码 use (fn) {
-if (typeof fn !== 'function') throw new TypeError('middleware must be a function!')
-debug('use %s', fn.\_name || fn.name || '-')
-this.middleware.push(fn)
-return this
+```javascript
+use (fn) {
+  if (typeof fn !== 'function') throw new TypeError('middleware must be a function!')
+  debug('use %s', fn._name || fn.name || '-')
+  this.middleware.push(fn)
+  return this
 }
+```
 
 compose 函数：将一组中间件函数组合成一个大的异步函数。这个大的异步函数会依次执行每个中间件函数，并将每个中间件函数的执行结果传递给下一个中间件函数。最终，这个大的异步函数会返回一个 Promise 对象，表示整个中间件链的执行结果。
 
-javascript 复制代码 function compose(middleware) {
-if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
-for (const fn of middleware) {
-if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
-}
+```javascript
+function compose(middleware) {
+  if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
+  for (const fn of middleware) {
+    if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
+  }
 
-return function (context, next) {
-let index = -1
-return dispatch(0)
+  return function (context, next) {
+    let index = -1
+    return dispatch(0)
 
     function dispatch(i) {
       if (i <= index) return Promise.reject(new Error('next() called multiple times'))
@@ -240,9 +269,9 @@ return dispatch(0)
         return Promise.reject(err)
       }
     }
-
+  }
 }
-}
+```
 
 8. 什么是 Stream 流，有哪些应用场景？
    Stream 是一种处理流式数据的抽象接口，用于读取、写入、转换和操作数据流。它是一个基于事件的 API，可以让我们以高效、低延迟的方式处理大型数据集。

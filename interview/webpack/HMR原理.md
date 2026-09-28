@@ -67,3 +67,28 @@ WebSocket 将更新模块 ID 和新代码推送到浏览器
 HMR runtime 替换模块缓存，并调用模块 accept 回调
 页面状态保持不变，如果模块不可替换 → HMR runtime 自动刷新页面
 这个过程完全自动触发，不需要手动刷新，浏览器收到消息后 Runtime 负责模块替换。”
+
+追问 1： 浏览器接到 WebSocket 之后，hot-check / hot-apply 各做什么？module.hot.accept 的回调是在替换前还是替换后执行？
+
+开口：WebSocket **几乎只带新 hash**，不塞整份模块代码。runtime 先 `check` 把补丁拉下来，再 `apply` 真正换缓存。`accept` 回调在 **替换之后**；要在换掉之前收摊，用 `dispose`。
+
+```text
+WS 推 hash
+  → hot.check()     下载 *.hot-update.json（谁变了）+ *.hot-update.js（新代码）
+  → 还没动 __webpack_module_cache__
+  → hot.apply()     沿依赖图找 accept → dispose 旧模块 → 换缓存并执行新 factory → 再跑 accept 回调
+  → 冒泡到入口还没人 accept → location.reload()
+```
+
+| | 干什么 | 动不动缓存 |
+|--|--------|------------|
+| **hot-check** | 按 hash 拉 manifest 和补丁，算 outdated 模块名单 | 否，只下载 |
+| **hot-apply** | 按名单替换、跑钩子；失败才整页刷新 | 是 |
+
+`module.hot.accept('./dep', cb)`：新模块已经进缓存、factory 跑过了，才调 `cb`。所以回调里再 `require('./dep')` 拿到的是新导出。
+
+`module.hot.dispose(fn)`：在旧模块被踢出缓存 **之前** 调，用来卸监听、把 state 交给 `data`，新模块用 `module.hot.data` 接回来。别把 dispose 说成 accept。
+
+自接受 `module.hot.accept()` 没有这份 `cb`：模块自己被换掉并重新执行。传函数时那是 **error handler**，不是「替换后回调」。
+
+一面别说「WS 把新代码推过来就替换」。推的是通知，拉补丁是 check，换模块是 apply。

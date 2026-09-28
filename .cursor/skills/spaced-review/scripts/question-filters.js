@@ -10,6 +10,7 @@ const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
 /** 子目录下的追问：只保留主题目文件，其余剔除 */
 const FOLLOWUP_DIRS = {
   'interview/网络/url过程': ['url输入到页面展示的过程.md'],
+  'interview/浏览器/内存泄漏': ['前端内存泄漏.md'],
   'interview/dataStructure/tree': [],
   'interview/es5/this': [],
 };

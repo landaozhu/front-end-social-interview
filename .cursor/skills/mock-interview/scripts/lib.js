@@ -59,12 +59,13 @@ const EXTRA_KNOWLEDGE = KNOWLEDGE_COUNT - KNOWLEDGE_DOMAINS.length;
 const LEVEL_ORDER = { P0: 0, P1: 1, P2: 2, P3: 3 };
 
 /**
- * 一面专用抽题：70% 未学会 ✗。
- * 剩下 30% 先抽已学会且到期；到期池为空才抽未测。
+ * 一面专用抽题：80% 已通过 ✓，20% 未通过 ✗。未测不抽。
+ * 已通过池优先到期复习，没有到期再抽其他已通过。
  * 自我考察仍走 25k 表的 25/25/50。
  */
-const MOCK_NOT_LEARNED_RATIO = 0.7;
-const MOCK_PICK_RATIOS = { due: 0.3, notLearned: 0.7, untested: 0 };
+const MOCK_PASSED_RATIO = 0.8;
+const MOCK_NOT_LEARNED_RATIO = 0.2;
+const MOCK_PICK_RATIOS = { due: 0.8, notLearned: 0.2, untested: 0 };
 
 /** 八股文排除：无独立答案文件的目录/类目 */
 const KNOWLEDGE_EXCLUDE_PATH_RE =
@@ -126,9 +127,9 @@ function getKnowledgeDomain(q) {
   ) {
     return 'engineering';
   }
-  if (
-    p.startsWith('interview/vue/')
+  if (p.startsWith('interview/vue/')
     || p.startsWith('interview/vue3/')
+    || p.startsWith('interview/选型/')
     || /vue2和vue3|computed对比watch|vuex和redux|路由模式|ref对比reactive/.test(haystack)
   ) {
     return 'vue';
@@ -176,11 +177,27 @@ function weightedPickOne(pool, excludeIds = new Set()) {
   return pickWeightedFromPool(candidates);
 }
 
+function toPassedItem(q, today) {
+  return {
+    question: q,
+    stageId: null,
+    stageLabel: '已通过 ✓',
+    dueDate: today,
+    overdueDays: 0,
+  };
+}
+
+function getPassedPool(data, today, filterFn) {
+  return data.questions
+    .filter((q) => q.learned === 'yes' && filterFn(q) && !wasAttemptedToday(q, today) && !isRetired(q))
+    .map((q) => toPassedItem(q, today));
+}
+
 function buildMarkablePool(data, today, filterFn, minImportance) {
   const skipToday = (d) => !wasAttemptedToday(d.question, today) && !isRetired(d.question);
   let due = getDueQuestions(data, today).filter((d) => filterFn(d.question)).filter(skipToday);
+  let passed = getPassedPool(data, today, filterFn);
   let notLearned = getNotLearnedQuestions(data).filter((d) => filterFn(d.question)).filter(skipToday);
-  let untested = getUntestedQuestions(data).filter((d) => filterFn(d.question)).filter(skipToday);
 
   if (minImportance) {
     const maxOrder = LEVEL_ORDER[minImportance];
@@ -189,11 +206,11 @@ function buildMarkablePool(data, today, filterFn, minImportance) {
       return filtered.length > 0 ? filtered : pool;
     };
     due = filterByMin(due);
+    passed = filterByMin(passed);
     notLearned = filterByMin(notLearned);
-    untested = filterByMin(untested);
   }
 
-  return { due, notLearned, untested };
+  return { due, passed, notLearned, untested: [] };
 }
 
 function getReadingPool(today, data) {
@@ -231,23 +248,34 @@ function toCoverageItem(q, today, stageLabel = '覆盖抽') {
   };
 }
 
-/** 70% 未学会；30% 已学会到期，没有到期才未测。某池为空则顺延。 */
-function pickMockFromPools(due, notLearned, untested) {
-  if (notLearned.length === 0 && due.length === 0 && untested.length === 0) {
-    return { picked: null, pickSource: null };
-  }
-  const preferNotLearned = Math.random() < MOCK_NOT_LEARNED_RATIO;
-  if (preferNotLearned && notLearned.length > 0) {
-    return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
-  }
+function pickPassedFromPools(due, passed) {
   if (due.length > 0) {
     return { picked: pickWeightedFromPool(due), pickSource: 'due' };
   }
-  if (untested.length > 0) {
-    return { picked: pickWeightedFromPool(untested), pickSource: 'untested' };
+  if (passed.length > 0) {
+    return { picked: pickWeightedFromPool(passed), pickSource: 'learned' };
   }
-  if (notLearned.length > 0) {
-    return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+  return { picked: null, pickSource: null };
+}
+
+/** 80% 已通过（到期优先），20% 未通过。未测不抽。某池为空则顺延。 */
+function pickMockFromPools(due, passed, notLearned) {
+  if (due.length === 0 && passed.length === 0 && notLearned.length === 0) {
+    return { picked: null, pickSource: null };
+  }
+  const preferPassed = Math.random() < MOCK_PASSED_RATIO;
+  if (preferPassed) {
+    const fromPassed = pickPassedFromPools(due, passed);
+    if (fromPassed.picked) return fromPassed;
+    if (notLearned.length > 0) {
+      return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+    }
+  } else {
+    if (notLearned.length > 0) {
+      return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+    }
+    const fromPassed = pickPassedFromPools(due, passed);
+    if (fromPassed.picked) return fromPassed;
   }
   return { picked: null, pickSource: null };
 }
@@ -256,30 +284,30 @@ function pickFromPools(pools, excludeIds) {
   const filter = (arr) => arr.filter((d) => !excludeIds.has(d.question.id));
   return pickMockFromPools(
     filter(pools.due),
+    filter(pools.passed || []),
     filter(pools.notLearned),
-    filter(pools.untested),
   );
 }
 
-/** 必考方向：未学会 → 未测 → 已学会到期。没有未学会时先补覆盖，不先占用到期复习。 */
-function pickCoverageFromPools(due, notLearned, untested) {
+/** 必考方向先已通过（到期优先）；该方向没有已通过才抽未通过。未测不在这里抽。 */
+function pickCoverageFromPools(due, passed, notLearned) {
+  const fromPassed = pickPassedFromPools(due, passed);
+  if (fromPassed.picked) return fromPassed;
   if (notLearned.length > 0) {
     return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
-  }
-  if (untested.length > 0) {
-    return { picked: pickWeightedFromPool(untested), pickSource: 'untested' };
-  }
-  if (due.length > 0) {
-    return { picked: pickWeightedFromPool(due), pickSource: 'due' };
   }
   return { picked: null, pickSource: null };
 }
 
 function countNotLearnedPicks(picks) {
-  return picks.filter((p) => p.pickSource === 'notLearned').length;
+  return picks.filter((p) => {
+    if (p.pickSource === 'notLearned') return true;
+    const q = p.picked?.question || p.item?.question;
+    return q && q.learned === 'no';
+  }).length;
 }
 
-/** 未学会池里按 P0/P1 优先抽，不限方向。用于后面几题把整场补回约 70%。 */
+/** 未通过池里按 P0/P1 优先抽，不限方向。用于把整场未通过补到约 20%。 */
 function pickAnyNotLearned(pool, excludeIds) {
   const result = pickByImportanceTiers(
     (cap) => {
@@ -294,6 +322,18 @@ function pickAnyNotLearned(pool, excludeIds) {
   );
   if (result.picked) result.pickSource = 'notLearned';
   return result;
+}
+
+/** 已通过池（到期优先）按 P0/P1 抽，把整场已通过补到约 80%。 */
+function pickAnyPassed(duePool, passedPool, excludeIds) {
+  const dueHit = pickAnyNotLearned(duePool, excludeIds);
+  if (dueHit.picked) {
+    dueHit.pickSource = 'due';
+    return dueHit;
+  }
+  const passedHit = pickAnyNotLearned(passedPool, excludeIds);
+  if (passedHit.picked) passedHit.pickSource = 'learned';
+  return passedHit;
 }
 
 function withinImportance(d, cap) {
@@ -317,27 +357,34 @@ function pickByImportanceTiers(pickAtCap, fallbackItems, excludeIds) {
 
 function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, minImportance) {
   const inDomain = (q) => isKnowledgeEligible(q) && matchesCoverageDomain(q, domain.id);
+  const tested = (q) => q.learned === 'yes' || q.learned === 'no';
   const filterPool = (arr, cap) => arr.filter(
     (d) => inDomain(d.question) && !excludeIds.has(d.question.id) && withinImportance(d, cap),
   );
 
-  let fallback = data.questions
-    .filter(inDomain)
-    .filter((q) => !wasAttemptedToday(q, today) && !isRetired(q))
-    .map((q) => toCoverageItem(q, today));
-  if (minImportance) {
-    const maxOrder = LEVEL_ORDER[minImportance];
-    const filtered = fallback.filter(
-      (d) => (LEVEL_ORDER[d.question.importance] ?? 2) <= maxOrder,
-    );
-    if (filtered.length > 0) fallback = filtered;
-  }
+  const toFallback = (pred) => {
+    let items = data.questions
+      .filter(inDomain)
+      .filter((q) => !wasAttemptedToday(q, today) && !isRetired(q) && pred(q))
+      .map((q) => toCoverageItem(q, today));
+    if (minImportance) {
+      const maxOrder = LEVEL_ORDER[minImportance];
+      const filtered = items.filter(
+        (d) => (LEVEL_ORDER[d.question.importance] ?? 2) <= maxOrder,
+      );
+      if (filtered.length > 0) items = filtered;
+    }
+    return items;
+  };
+
+  let fallback = toFallback(tested);
+  if (fallback.length === 0) fallback = toFallback(() => true);
 
   const result = pickByImportanceTiers(
     (cap) => pickCoverageFromPools(
       filterPool(knowledgePools.due, cap),
+      filterPool(knowledgePools.passed, cap),
       filterPool(knowledgePools.notLearned, cap),
-      filterPool(knowledgePools.untested, cap),
     ),
     fallback,
     excludeIds,
@@ -348,6 +395,7 @@ function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, min
 function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomainUsed) {
   const prefer = (q, cap) => {
     if (!isKnowledgeEligible(q) || excludeIds.has(q.id) || wasAttemptedToday(q, today) || isRetired(q)) return false;
+    if (q.learned !== 'yes' && q.learned !== 'no') return false;
     const domainId = getKnowledgeDomain(q);
     if (!domainId || extraDomainUsed.has(domainId)) return false;
     return withinImportance({ question: q }, cap);
@@ -356,6 +404,7 @@ function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomain
   const fallback = data.questions
     .filter((q) => {
       if (!isKnowledgeEligible(q) || excludeIds.has(q.id) || wasAttemptedToday(q, today) || isRetired(q)) return false;
+      if (q.learned !== 'yes' && q.learned !== 'no') return false;
       const domainId = getKnowledgeDomain(q);
       return domainId && !extraDomainUsed.has(domainId);
     })
@@ -364,8 +413,8 @@ function pickExtraKnowledge(knowledgePools, data, today, excludeIds, extraDomain
   const result = pickByImportanceTiers(
     (cap) => pickMockFromPools(
       knowledgePools.due.filter((d) => prefer(d.question, cap)),
+      knowledgePools.passed.filter((d) => prefer(d.question, cap)),
       knowledgePools.notLearned.filter((d) => prefer(d.question, cap)),
-      knowledgePools.untested.filter((d) => prefer(d.question, cap)),
     ),
     fallback,
     excludeIds,
@@ -438,17 +487,27 @@ function pickSession(data, today = todayStr(), options = {}) {
 
   const extraDomainUsed = new Set();
   const markableTotal = KNOWLEDGE_COUNT + HANDWRITTEN_COUNT;
-  const notLearnedTarget = Math.ceil(markableTotal * MOCK_NOT_LEARNED_RATIO);
+  const notLearnedTarget = Math.round(markableTotal * MOCK_NOT_LEARNED_RATIO);
+  const hwNlAvailable = handwrittenPools.notLearned.filter(
+    (d) => !excludeIds.has(d.question.id),
+  ).length;
+  const reserveHwNl = Math.min(HANDWRITTEN_COUNT, notLearnedTarget, hwNlAvailable);
+  const knowledgeNlTarget = Math.max(0, notLearnedTarget - reserveHwNl);
 
   for (let i = 0; i < EXTRA_KNOWLEDGE; i += 1) {
-    const behind = countNotLearnedPicks(knowledgePicks) < notLearnedTarget;
+    const nlSoFar = countNotLearnedPicks(knowledgePicks);
+    const behind = nlSoFar < knowledgeNlTarget;
     let result = behind
       ? pickAnyNotLearned(knowledgePools.notLearned, excludeIds)
-      : null;
+      : pickAnyPassed(knowledgePools.due, knowledgePools.passed, excludeIds);
     if (!result || !result.picked) {
-      result = pickExtraKnowledge(
-        knowledgePools, data, today, excludeIds, extraDomainUsed,
-      );
+      if (behind) {
+        result = pickExtraKnowledge(
+          knowledgePools, data, today, excludeIds, extraDomainUsed,
+        );
+      } else {
+        result = pickAnyPassed(knowledgePools.due, knowledgePools.passed, excludeIds);
+      }
     }
     if (!result.picked) break;
     excludeIds.add(result.picked.question.id);
@@ -462,7 +521,7 @@ function pickSession(data, today = todayStr(), options = {}) {
   }
 
   const readingPicks = pickManyFromPools(
-    { due: readingPool, notLearned: [], untested: [] },
+    { due: readingPool, passed: readingPool, notLearned: [] },
     data,
     excludeIds,
     READING_COUNT,
@@ -472,6 +531,7 @@ function pickSession(data, today = todayStr(), options = {}) {
   const handwrittenFallback = data.questions
     .filter(isHandwrittenEligible)
     .filter((q) => !wasAttemptedToday(q, today) && !isRetired(q))
+    .filter((q) => q.learned === 'yes' || q.learned === 'no')
     .map((q) => toCoverageItem(q, today));
   const handwrittenPicks = [];
   for (let i = 0; i < HANDWRITTEN_COUNT; i += 1) {
@@ -483,15 +543,25 @@ function pickSession(data, today = todayStr(), options = {}) {
       const forced = pickAnyNotLearned(handwrittenPools.notLearned, excludeIds);
       picked = forced.picked;
       pickSource = forced.pickSource;
+    } else {
+      const forced = pickAnyPassed(handwrittenPools.due, handwrittenPools.passed, excludeIds);
+      picked = forced.picked;
+      pickSource = forced.pickSource;
     }
-    if (!picked) {
+    if (!picked && behind) {
       const fallbackPick = pickFromPools(handwrittenPools, excludeIds);
       picked = fallbackPick.picked;
       pickSource = fallbackPick.pickSource;
     }
-    if (!picked && handwrittenFallback.length) {
-      picked = weightedPickOne(handwrittenFallback, excludeIds);
-      pickSource = picked ? 'coverage' : null;
+    if (!picked) {
+      const passedOnly = handwrittenFallback.filter((d) => d.question.learned === 'yes');
+      const pool = behind ? handwrittenFallback : passedOnly;
+      if (pool.length) {
+        picked = weightedPickOne(pool, excludeIds);
+        pickSource = picked
+          ? (picked.question.learned === 'no' ? 'notLearned' : 'learned')
+          : null;
+      }
     }
     if (!picked) break;
     excludeIds.add(picked.question.id);
@@ -553,7 +623,7 @@ function pickSession(data, today = todayStr(), options = {}) {
       totalUntested: untested.length,
     },
     questions,
-    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。必考方向：未学会→未测→到期。后面几题若未学会不足 70% 则只抽未学会，把整场补回去。不要把后续题目提前告诉候选人。',
+    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。整场 80% 已通过 ✓、20% 未通过 ✗，未测不抽。已通过优先到期。不要把后续题目提前告诉候选人。',
   };
 }
 
@@ -567,6 +637,7 @@ module.exports = {
   MOCK_PROFILE,
   MOCK_PICK_RATIOS,
   MOCK_NOT_LEARNED_RATIO,
+  MOCK_PASSED_RATIO,
   KNOWLEDGE_COUNT,
   READING_COUNT,
   HANDWRITTEN_COUNT,

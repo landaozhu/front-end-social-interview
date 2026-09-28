@@ -61,8 +61,11 @@ function getDomain(q) {
   if (p.startsWith('interview/node/')) return 'node';
   if (p.startsWith('interview/网络/')) return 'network';
   if (
-    /性能优化|首屏|FCP|lighthouse|弱网|长列表|虚拟滚动/i.test(hay)
-    && !p.startsWith('interview/webpack/')
+    p.startsWith('interview/性能优化/')
+    || (
+      /性能优化|首屏|FCP|lighthouse|弱网|长列表|虚拟滚动/i.test(hay)
+      && !p.startsWith('interview/webpack/')
+    )
   ) {
     return 'performance';
   }
@@ -276,7 +279,7 @@ const DOMAIN_TO_DIR = {
   network: 'interview/网络',
   node: 'interview/node',
   microfrontend: 'interview/微前端',
-  performance: 'interview/浏览器',
+  performance: 'interview/性能优化',
   browser: 'interview/浏览器',
   principle: 'interview/js',
   handwritten: 'interview/handwritten',
