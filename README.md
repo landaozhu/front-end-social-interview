@@ -4,12 +4,12 @@
 
 这是一个针对大厂社招前端面试宝典。
 
-市面上有很多面经，往往内容不够丰富或者不够新，容易被挖深就答不出，又或者题目比较零散，本项目针对社招前端，系统且快速复习的需求，做了题目和答案的整理，适用于P5、P6
+市面上有很多面经，往往内容不够丰富，容易被挖深就答不出，或者不够新，几年前的很多面试题现在压根不问，本项目针对社招前端，本着快速复习的需求，做了题目和答案的整理。适用于P5、P6，3-5年
 
-解释：1.高频为从上到下，因此阅读此文只需要从上到下，我已排好；2.非高频部分我会删除，有些过时的2026年不会再问就没必要学了，所以尽量看最新出的面经和面试题宝典
+解释：1.高频为从上到下，因此阅读此文只需要从上到下，我已排好；2.有些过时的2026年不会再问就没必要学了，所以尽量看最新出的面经和面试题宝典
 
 ## AI辅助
--[详见](./skill说明.md)
+[Skill合集](./skill说明.md)
 
 ## 必考
 
@@ -46,6 +46,9 @@
 - [闭包](interview/es5/必包.md)
 - [原型和原型链](interview/es5/原型和原型链.md)
 - [浮点数精度](interview/js/浮点数精度.md)
+- [箭头函数](interview/es6/箭头函数.md)
+- [作用域](interview/es5/作用域.md)
+- [call、apply、bind 区别](interview/es5/call、apply、bind区别.md)
 - [DOM](interview/js/dom.md)
 - [事件冒泡和事件捕获](interview/js/事件冒泡和事件捕获.md)
 - [模块化](interview/js/模块化.md)
@@ -56,27 +59,17 @@
 - [setTimeout](interview/js/setTimeout.md)
 - [图片懒加载](interview/js/图片懒加载.md)
 - [高性能渲染十万条数据](interview/js/高性能渲染十万条数据.md)
-- [轮播图动画](interview/js/轮播图动画.md)
 - [数组顺序打乱](interview/js/讲一个数组顺序打乱.md)
 - [生成随机码](interview/js/生成随机码.md)
 - [找到数组里和为 n 的组合](interview/js/猫眼：找到数组里和为n的组合.md)
-- [作用域](interview/es5/作用域.md)
-- [call、apply、bind 区别](interview/es5/call、apply、bind区别.md)
 - [new 做了什么](interview/es5/new做了什么.md)
 - [严格模式](interview/es5/严格模式.md)
-
-### Hybrid
-- [JSBridge](interview/js/JSBridge.md)
-
-### 跨端
-- [uni-app 跨端原理](interview/对比题/uniapp跨端原理.md)
-- [uni-app 小程序和 H5 兼容](interview/对比题/uniapp小程序和h5兼容.md)
-
-#### ES6
-
-- [箭头函数](interview/es6/箭头函数.md)
 - [数组和 Set 的区别](interview/es6/数组和set的区别.md)
 - [Object 和 Map 的区别](interview/es6/Object和Map的区别.md)
+
+
+
+
 
 ### TypeScript
 
@@ -88,27 +81,6 @@
 - [方法重载](interview/ts/方法重载.md)
 - [高级类型](interview/ts/高级类型.md)
 - [大厂 TS 高级类型](interview/ts/大厂TS高级类型.md)
-
-### 浏览器
-
-- [浏览器总览](interview/浏览器.md)
-- [浏览器结构](interview/浏览器/浏览器结构.md)
-- [单线程](interview/浏览器/单线程.md)
-- [Event Loop](interview/浏览器/eventloop.md)
-- [判断 JS 环境是 Node 还是浏览器](interview/浏览器/判断js环境是node还是浏览器.md)
-- [内存泄漏场景](interview/浏览器/内存泄漏/泄漏场景.md)
-- [内存怎么排查](interview/浏览器/内存泄漏/怎么排查.md)
-- [标记清除和引用计数](interview/浏览器/内存泄漏/标记清除和引用计数.md)
-- [V8 的垃圾回收机制](interview/浏览器/内存泄漏/v8的垃圾回收机制.md)
-- [Performance](interview/浏览器/performance.md)
-- [性能指标咋计算](interview/浏览器/性能指标咋计算.md)
-- [重绘和重排](interview/浏览器/重绘和重排.md)
-- [渲染瓶颈](interview/浏览器/渲染瓶颈.md)
-- [弱网下首屏怎么做](interview/浏览器/弱网下首屏怎么做.md)
-- [多个标签页如何通信](interview/浏览器/多个标签页如何通信.md)
-- [前端内存泄漏](interview/浏览器/内存泄漏/前端内存泄漏.md)
-- [ready 和 onload 的区别](interview/浏览器/ready和onload的区别.md)
-- [onload 和 DOMContentLoaded](interview/浏览器/onload和domcontentloaded.md)
 
 
 
@@ -169,8 +141,8 @@
 
 ### 网络
 
-- [网络安全总览](interview/网络安全.md)
-- [HTTP 高频面试题](interview/网络/http高频面试题.md)
+- [URL 输入到页面展示的过程](interview/网络/url过程/url输入到页面展示的过程.md)
+- [常见网络攻击方式](interview/网络/常见网络攻击方式.md)
 - [HTTP 和 HTTPS 的区别](interview/网络/http和https的区别.md)
 - [HTTPS 加密过程](interview/网络/https加密过程.md)
 - [HTTP 状态码](interview/网络/http状态码.md)
@@ -179,8 +151,6 @@
 - [TCP 和 UDP 的区别](interview/网络/tcp和udp的区别.md)
 - [跨域](interview/网络/跨域.md)
 - [存储](interview/网络/存储.md)
-- [常见网络攻击方式](interview/网络/常见网络攻击方式.md)
-- [URL 输入到页面展示的过程](interview/网络/url过程/url输入到页面展示的过程.md)
 - [DNS 查询过程](interview/网络/url过程/dns查询过程.md)
 - [三次握手](interview/网络/url过程/三次握手.md)
 - [四次挥手](interview/网络/url过程/四次挥手.md)
@@ -214,6 +184,34 @@
 - [TerserPlugin](interview/webpack/TerserPlugin.md)
 - [ZipPlugin 手写](interview/webpack/ZipPlugin手写.md)
 - [灰度发布](interview/webpack/灰度发布.md)
+
+
+### 浏览器
+
+- [浏览器总览](interview/浏览器.md)
+- [浏览器结构](interview/浏览器/浏览器结构.md)
+- [单线程](interview/浏览器/单线程.md)
+- [Event Loop](interview/浏览器/eventloop.md)
+- [判断 JS 环境是 Node 还是浏览器](interview/浏览器/判断js环境是node还是浏览器.md)
+- [内存泄漏场景](interview/浏览器/内存泄漏/泄漏场景.md)
+- [内存怎么排查](interview/浏览器/内存泄漏/怎么排查.md)
+- [标记清除和引用计数](interview/浏览器/内存泄漏/标记清除和引用计数.md)
+- [V8 的垃圾回收机制](interview/浏览器/内存泄漏/v8的垃圾回收机制.md)
+- [Performance](interview/浏览器/performance.md)
+- [性能指标咋计算](interview/浏览器/性能指标咋计算.md)
+- [重绘和重排](interview/浏览器/重绘和重排.md)
+- [渲染瓶颈](interview/浏览器/渲染瓶颈.md)
+- [弱网下首屏怎么做](interview/浏览器/弱网下首屏怎么做.md)
+- [多个标签页如何通信](interview/浏览器/多个标签页如何通信.md)
+- [前端内存泄漏](interview/浏览器/内存泄漏/前端内存泄漏.md)
+- [ready 和 onload 的区别](interview/浏览器/ready和onload的区别.md)
+- [onload 和 DOMContentLoaded](interview/浏览器/onload和domcontentloaded.md)
+### Hybrid
+- [JSBridge](interview/js/JSBridge.md)
+
+### 跨端
+- [uni-app 跨端原理](interview/对比题/uniapp跨端原理.md)
+- [uni-app 小程序和 H5 兼容](interview/对比题/uniapp小程序和h5兼容.md)
 
 
 
