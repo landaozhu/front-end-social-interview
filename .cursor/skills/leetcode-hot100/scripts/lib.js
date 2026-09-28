@@ -4,8 +4,9 @@ const spaced = require('../../spaced-review/scripts/lib');
 
 const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
 const CATALOG_FILE = path.join(__dirname, '../catalog.json');
-const DATA_FILE = path.join(PROJECT_ROOT, 'leetcode热题100.json');
-const TABLE_MD = path.join(PROJECT_ROOT, 'leetcode热题100.md');
+const DATA_DIR = path.join(PROJECT_ROOT, 'data');
+const DATA_FILE = path.join(DATA_DIR, 'leetcode热题100.json');
+const TABLE_MD = path.join(DATA_DIR, 'leetcode热题100.md');
 const LC_BASE = 'https://leetcode.cn/problems';
 
 const DIFFICULTY_LABEL = { EASY: '简单', MEDIUM: '中等', HARD: '困难' };

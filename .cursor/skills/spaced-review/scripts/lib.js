@@ -8,8 +8,9 @@ const { parseInterviewSummary } = require('./parse-interview-summary');
 const { parseNowcoderPosts } = require('./parse-nowcoder');
 
 const PROJECT_ROOT = path.resolve(__dirname, '../../../..');
-const DATA_FILE = path.join(PROJECT_ROOT, '25k考察列表.json');
-const TABLE_MD = path.join(PROJECT_ROOT, '25k考察列表.md');
+const DATA_DIR = path.join(PROJECT_ROOT, 'data');
+const DATA_FILE = path.join(DATA_DIR, '25k考察列表.json');
+const TABLE_MD = path.join(DATA_DIR, '25k考察列表.md');
 
 /** 遗忘曲线复习节点（间隔天数；到期 = 上一节点日期 + daysAfterPrev） */
 const REVIEW_STAGES = [

@@ -8,7 +8,7 @@
 
 解释：1.高频为从上到下，因此阅读此文只需要从上到下，我已排好；2.有些过时的2026年不会再问就没必要学了，所以尽量看最新出的面经和面试题宝典
 
-## AI辅助
+## AI辅助复习与学习
 [Skill合集](./skill说明.md)
 
 ## 必考
@@ -33,7 +33,6 @@
 - [GraphQL 和 RESTful](interview/对比题/GraphQL和RESTful.md)
 - [Java vs Node](<interview/对比题/java vs node.md>)
 - [npm vs pnpm](<interview/对比题/npm vs pnpm.md>)
-- [TS 和 Java 的类的区别](interview/对比题/ts和java的类的区别.md)
 - [unknown 和 any](interview/对比题/undown和any.md)
 - [dayjs 和 moment 区别](interview/对比题/dayjs和moment区别.md)
 - [RN 对比其他跨端方案](interview/对比题/rn对比其他跨端方案.md)
@@ -112,7 +111,7 @@
 
 ### React
 
-
+- [React 18 更新了什么](interview/react/react18更新了什么.md)
 - [React 原理](interview/react/react原理.md)
 - [React 架构演进](interview/react/React架构演进.md)
 - [React 更新原理](interview/react/react更新原理.md)
@@ -131,11 +130,10 @@
 - [强制刷新](interview/react/强制刷新.md)
 - [异步组件](interview/react/异步组件.md)
 - [事件系统原理](interview/react/事件系统原理.md)
-- [React 18 更新了什么](interview/react/react18更新了什么.md)
-- [SSR 优缺点](interview/react/SSR优缺点.md)
-- [SSR 请求时机](interview/react/ssr请求时机.md)
-- [优化](interview/react/优化.md)
-- [输入「去 xx 酒店」出现酒店](interview/react/输入去xx酒店出现酒店.md)
+
+
+- [react优化](interview/react/优化.md)
+
 - [react-quill 中文输入问题](interview/react/react-quill使用服务端上传图片handlers导致中文输入问题-原理分析.md)
 - [Redux](interview/redux.md)
 
@@ -206,10 +204,11 @@
 - [前端内存泄漏](interview/浏览器/内存泄漏/前端内存泄漏.md)
 - [ready 和 onload 的区别](interview/浏览器/ready和onload的区别.md)
 - [onload 和 DOMContentLoaded](interview/浏览器/onload和domcontentloaded.md)
-### Hybrid
-- [JSBridge](interview/js/JSBridge.md)
 
-### 跨端
+### 移动端
+- [JSBridge](interview/js/JSBridge.md)
+- [SSR 优缺点](interview/react/SSR优缺点.md)
+- [SSR 请求时机](interview/react/ssr请求时机.md)
 - [uni-app 跨端原理](interview/对比题/uniapp跨端原理.md)
 - [uni-app 小程序和 H5 兼容](interview/对比题/uniapp小程序和h5兼容.md)
 
@@ -247,6 +246,14 @@
 
 
 ## 可能问
+
+### 场景题
+
+- [10000 个数据](interview/场景题/10000个数据.md)
+- [国际化](interview/场景题/国际化.md)
+- [实现 SSR](interview/场景题/实现ssr.md)
+- [输入「去 xx 酒店」出现酒店](interview/react/输入去xx酒店出现酒店.md)
+
 ### 手写题
 
 - [Promise](interview/handwritten/promise.md)
@@ -270,11 +277,7 @@
 - [less-loader](interview/handwritten/less-loader.md)
 - [style-loader](interview/handwritten/style-loader.md)
 
-### 场景题
 
-- [10000 个数据](interview/场景题/10000个数据.md)
-- [国际化](interview/场景题/国际化.md)
-- [实现 SSR](interview/场景题/实现ssr.md)
 
 ## 基本不问
 

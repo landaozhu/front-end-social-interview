@@ -31,7 +31,7 @@ node .cursor/skills/company-drill/scripts/record-result.js --title="题干" --sc
 | 过关（主干对 **且** 中位数追问能答） | 有对应母题 | 打 ✓，写首次学会 / R |
 | 过关 | 没有 | 不写入 |
 | **不过关**（含：第一口对、追问挂了） | 有对应母题 | 打 ✗，清空日期；没过的追问写进该母题 md |
-| **不过关** | 没有 | 新建 `interview/{方向}/题名.md`，写入 JSON 和 `25k考察列表.md`，打 ✗ |
+| **不过关** | 没有 | 新建 `interview/{方向}/题名.md`，写入 `data/25k考察列表.json` 和 `data/25k考察列表.md`，打 ✗ |
 
 打 ✓ 细则见 [`spaced-review/scoring.md`](../spaced-review/scoring.md)。**禁止**「母题过了、追问没过、母题仍保持 ✓」。
 

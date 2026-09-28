@@ -75,6 +75,88 @@ const KNOWLEDGE_EXCLUDE_PATH_RE =
  * 八股文选题范围（必须在 25k考察列表 内，且 path 指向 interview/ 下独立 .md 答案）
  * 排除：compony / 牛客 / 面试题汇总（只有题单、无独立答案，增加搜题负担）
  */
+const WEBPACK_README = path.join(PROJECT_ROOT, 'interview/webpack/README.md');
+
+/**
+ * interview/webpack/README.md 从上到下是高频顺序。
+ * 只收指向本地 .md 的链接；外链（原理文章、循环依赖）不进抽题。
+ */
+function loadWebpackHotPaths() {
+  if (!fs.existsSync(WEBPACK_README)) return [];
+  const text = fs.readFileSync(WEBPACK_README, 'utf8');
+  const paths = [];
+  const re = /\[[^\]]*\]\(([^)]+)\)/g;
+  let match = re.exec(text);
+  while (match) {
+    const href = match[1].trim().split('#')[0];
+    match = re.exec(text);
+    if (/^https?:/i.test(href) || !/\.md$/i.test(href)) continue;
+    const abs = path.normalize(path.join(path.dirname(WEBPACK_README), href));
+    const rel = path.relative(PROJECT_ROOT, abs).replace(/\\/g, '/');
+    if (!paths.includes(rel)) paths.push(rel);
+  }
+  return paths;
+}
+
+let webpackHotPathsCache;
+function getWebpackHotPaths() {
+  if (!webpackHotPathsCache) webpackHotPathsCache = loadWebpackHotPaths();
+  return webpackHotPathsCache;
+}
+
+function isWebpackQuestion(q) {
+  const p = (q.path || '').replace(/\\/g, '/');
+  return p.startsWith('interview/webpack/');
+}
+
+function webpackHotRank(q) {
+  const p = (q.path || '').replace(/\\/g, '/');
+  const idx = getWebpackHotPaths().indexOf(p);
+  return idx === -1 ? Number.POSITIVE_INFINITY : idx;
+}
+
+/** 池子里若有 README 清单上的 Webpack 题，取最靠前的一道，不随机。 */
+function pickHottestWebpack(pool) {
+  let best = null;
+  let bestRank = Number.POSITIVE_INFINITY;
+  for (const item of pool) {
+    const rank = webpackHotRank(item.question);
+    if (rank < bestRank) {
+      best = item;
+      bestRank = rank;
+    }
+  }
+  return best;
+}
+
+/**
+ * 工程化槽：按 README 从上到下走。
+ * 跳过当天做过、已退役、以及 ✓ 且还没到期的题。
+ * 未测和 ✗ 视为还没稳住，排在更靠后的已会题之前。
+ * 清单上的题都稳住了才返回空，交给原来的工程化随机池（Vite / 未列入清单的 Webpack）。
+ */
+function pickWebpackHotGap(data, today, excludeIds) {
+  const dueById = new Map(getDueQuestions(data, today).map((d) => [d.question.id, d]));
+  const byPath = new Map(
+    data.questions.map((q) => [(q.path || '').replace(/\\/g, '/'), q]),
+  );
+
+  for (const rel of getWebpackHotPaths()) {
+    const q = byPath.get(rel);
+    if (!q || !isKnowledgeEligible(q)) continue;
+    if (excludeIds.has(q.id) || wasAttemptedToday(q, today) || isRetired(q)) continue;
+    if (q.learned === 'yes' && !dueById.has(q.id)) continue;
+    if (q.learned === 'yes') {
+      return { picked: dueById.get(q.id), pickSource: 'due' };
+    }
+    if (q.learned === 'no') {
+      return { picked: toCoverageItem(q, today, '未学会 ✗'), pickSource: 'notLearned' };
+    }
+    return { picked: toCoverageItem(q, today, '高频未测'), pickSource: 'coverage' };
+  }
+  return { picked: null, pickSource: null };
+}
+
 function isKnowledgeEligible(q) {
   const p = (q.path || '').replace(/\\/g, '/');
   if (q.source !== 'interview') return false;
@@ -172,9 +254,33 @@ function scanReadingCodeQuestions() {
   return list;
 }
 
+/** 本场 README 清单还有没稳住的 Webpack 题时，不抽清单外的 Webpack。 */
+let blockUnlistedWebpack = false;
+
+function isUnlistedWebpack(q) {
+  return isWebpackQuestion(q) && !Number.isFinite(webpackHotRank(q));
+}
+
+/**
+ * 抽中 Webpack 题时，改成同一池里 README 最靠前的那道。
+ * 清单还没走完时，清单外的 Webpack 让位给同池里的其他题。
+ * 抽中的不是 Webpack（Vue / Vite / 网络等）则保持原随机结果。
+ */
+function pickOne(pool) {
+  if (!pool || pool.length === 0) return null;
+  let candidates = pool;
+  if (blockUnlistedWebpack) {
+    const withoutUnlisted = pool.filter((d) => !isUnlistedWebpack(d.question));
+    if (withoutUnlisted.length > 0) candidates = withoutUnlisted;
+  }
+  const chosen = pickWeightedFromPool(candidates);
+  if (!chosen || !isWebpackQuestion(chosen.question)) return chosen;
+  return pickHottestWebpack(candidates) || chosen;
+}
+
 function weightedPickOne(pool, excludeIds = new Set()) {
   const candidates = pool.filter((d) => !excludeIds.has(d.question.id));
-  return pickWeightedFromPool(candidates);
+  return pickOne(candidates);
 }
 
 function toPassedItem(q, today) {
@@ -250,10 +356,10 @@ function toCoverageItem(q, today, stageLabel = '覆盖抽') {
 
 function pickPassedFromPools(due, passed) {
   if (due.length > 0) {
-    return { picked: pickWeightedFromPool(due), pickSource: 'due' };
+    return { picked: pickOne(due), pickSource: 'due' };
   }
   if (passed.length > 0) {
-    return { picked: pickWeightedFromPool(passed), pickSource: 'learned' };
+    return { picked: pickOne(passed), pickSource: 'learned' };
   }
   return { picked: null, pickSource: null };
 }
@@ -268,11 +374,11 @@ function pickMockFromPools(due, passed, notLearned) {
     const fromPassed = pickPassedFromPools(due, passed);
     if (fromPassed.picked) return fromPassed;
     if (notLearned.length > 0) {
-      return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+      return { picked: pickOne(notLearned), pickSource: 'notLearned' };
     }
   } else {
     if (notLearned.length > 0) {
-      return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+      return { picked: pickOne(notLearned), pickSource: 'notLearned' };
     }
     const fromPassed = pickPassedFromPools(due, passed);
     if (fromPassed.picked) return fromPassed;
@@ -294,7 +400,7 @@ function pickCoverageFromPools(due, passed, notLearned) {
   const fromPassed = pickPassedFromPools(due, passed);
   if (fromPassed.picked) return fromPassed;
   if (notLearned.length > 0) {
-    return { picked: pickWeightedFromPool(notLearned), pickSource: 'notLearned' };
+    return { picked: pickOne(notLearned), pickSource: 'notLearned' };
   }
   return { picked: null, pickSource: null };
 }
@@ -315,7 +421,7 @@ function pickAnyNotLearned(pool, excludeIds) {
         (d) => !excludeIds.has(d.question.id) && withinImportance(d, cap),
       );
       if (items.length === 0) return { picked: null, pickSource: null };
-      return { picked: pickWeightedFromPool(items), pickSource: 'notLearned' };
+      return { picked: pickOne(items), pickSource: 'notLearned' };
     },
     pool.filter((d) => !excludeIds.has(d.question.id)),
     excludeIds,
@@ -356,6 +462,11 @@ function pickByImportanceTiers(pickAtCap, fallbackItems, excludeIds) {
 }
 
 function pickRequiredDomain(domain, knowledgePools, data, today, excludeIds, minImportance) {
+  if (domain.id === 'engineering') {
+    const hot = pickWebpackHotGap(data, today, excludeIds);
+    if (hot.picked) return { ...hot, domainId: domain.id };
+  }
+
   const inDomain = (q) => isKnowledgeEligible(q) && matchesCoverageDomain(q, domain.id);
   const tested = (q) => q.learned === 'yes' || q.learned === 'no';
   const filterPool = (arr, cap) => arr.filter(
@@ -466,6 +577,7 @@ function toQuestionPayload(item, slot, type, extra = {}) {
 }
 
 function pickSession(data, today = todayStr(), options = {}) {
+  blockUnlistedWebpack = Boolean(pickWebpackHotGap(data, today, new Set()).picked);
   const knowledgePools = buildMarkablePool(
     data, today, isKnowledgeEligible, options.minImportance,
   );
@@ -623,7 +735,7 @@ function pickSession(data, today = todayStr(), options = {}) {
       totalUntested: untested.length,
     },
     questions,
-    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。整场 80% 已通过 ✓、20% 未通过 ✗，未测不抽。已通过优先到期。不要把后续题目提前告诉候选人。',
+    note: '10 八股必须覆盖 8 方向；再加 1 阅读 + 2 手写。整场 80% 已通过 ✓、20% 未通过 ✗，未测不抽。已通过优先到期。工程化里的 Webpack 按 interview/webpack/README.md 从上到下取第一道还没稳住的题，不随机。不要把后续题目提前告诉候选人。',
   };
 }
 

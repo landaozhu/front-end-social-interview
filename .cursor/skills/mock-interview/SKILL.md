@@ -3,6 +3,7 @@ name: mock-interview
 description: >-
   一面模拟面试（整场）：25k 中大厂一面视角，每场 13 母题（10 八股必须覆盖工程化/Vue/React/Node/网络/TS/原理/微前端 + 1 阅读 + 2 手写），含追问纠正打分。
   原理只出 Vue / React / Webpack 实现原理，禁止浏览器、Performance、JS 基础当原理开场。
+  工程化里的 Webpack 按 interview/webpack/README.md 从上到下的高频顺序出题，禁止随机跳题。
   达标打 ✓ 写首次学会；未达标打 ✗ 清空日期。
   打 ✓ 须追问后确认中位数一面能过；半截答案 / 追问空白不能打 ✓。
   抽题：整场 80% 已通过 ✓ · 20% 未通过 ✗；未测先不抽。
@@ -24,7 +25,15 @@ description: >-
 
 **原理**：只出 Vue / React / Webpack 的实现原理（响应式、Fiber / 虚拟 DOM、编译优化、HMR、打包流程等）。禁止浏览器、Performance、JS 基础当原理开场。Vue / React / 工程化槽仍从各自目录补其他题，不与原理槽抽同一道。
 
-必考 8 方向优先抽 **P0/P1**，没有再降到 P2/P3。
+**工程化里的 Webpack**：按 [`interview/webpack/README.md`](../../../interview/webpack/README.md) **从上到下**取题。这个顺序就是高频顺序，禁止在 Webpack 题里随机跳。
+
+- 只认 README 里指向本地 `.md` 的链接。当前顺序：从零配置 → 常用配置 → 提高打包速度。外链（原理文章、循环依赖）不进抽题。
+- 往下走时跳过：当天已经做过、已「不再提问」、以及 **✓ 且还没到期** 的题。
+- 未测和 ✗ 算还没稳住，排在更靠后的已会题前面。所以清单第一道还没学会时，工程化槽就出这一道，不跳到后面的冷门 Webpack 或 Vite。
+- 清单上的题都稳住了（✓ 且未到期，或当天已考过），工程化槽才回到原来的池子（Vite、未写进 README 的 Webpack）。
+- 其他槽若抽中 Webpack，也改成同一池里 README 最靠前的那道。清单还没走完时，不拿打包流程、HMR、灰度发布、TerserPlugin 这类清单外的题来充数。
+
+必考 8 方向优先抽 **P0/P1**，没有再降到 P2/P3。Webpack 清单题不受这条随机降级影响，顺序优先。
 
 **禁止**把后续题目提前告诉候选人。
 
@@ -102,3 +111,4 @@ node .cursor/skills/mock-interview/scripts/mark-question.js "<question.id>" --sc
 - ❌ 八股覆盖不全就开场（`coverageComplete` 必须为 true）
 - ❌ 把 13 道题一次性抛给候选人
 - ❌ 用浏览器 / Performance / JS 基础充当「原理」开场
+- ❌ Webpack 题不按 `interview/webpack/README.md` 从上到下，改成随机抽

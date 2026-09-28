@@ -92,7 +92,7 @@ async function fetchPost(page, url) {
 }
 
 function loadExistingTitles() {
-  const jsonPath = path.join(ROOT, '25k考察列表.json');
+  const jsonPath = path.join(ROOT, 'data/25k考察列表.json');
   if (!fs.existsSync(jsonPath)) return new Set();
   const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
   const keys = new Set();
@@ -125,7 +125,7 @@ function classify(title) {
 }
 
 function mergeIntoTable(newQuestions) {
-  const jsonPath = path.join(ROOT, '25k考察列表.json');
+  const jsonPath = path.join(ROOT, 'data/25k考察列表.json');
   const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
   const existingKeys = new Set((data.questions || []).map((q) => normKey(q.title)));
   let added = 0;

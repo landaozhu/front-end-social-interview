@@ -11,7 +11,7 @@ description: >-
 # LeetCode 热题 100（平台自做 · 遗忘曲线）
 
 题单来自 [LeetCode 热题 100](https://leetcode.cn/studyplan/top-100-liked/)。  
-进度表：`leetcode热题100.md` / `leetcode热题100.json`。
+进度表：`data/leetcode热题100.md` / `data/leetcode热题100.json`。
 
 已通过批次的「首次学会」锚点是 **2026-07-31**（7 月底过完一轮），不是建表当天。
 
